@@ -2,7 +2,7 @@ export const Colors = {
   white: {
     default: '#F7F7F7',
     absolute: '#FFFFFF',
-    active: '#fafaf9',
+    tabIconSelected: '#fafaf9',
   },
   black: {
     default: '#000000',
@@ -15,7 +15,7 @@ export const Colors = {
   grey: {
     light: '#4A556D',
     dark: '#272C42',
-    inactive: '#737373',
+    tabIconUnselected: '#737373',
   },
   yellow: {
     default: '#FFFDDE',

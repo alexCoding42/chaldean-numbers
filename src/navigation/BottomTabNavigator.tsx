@@ -18,10 +18,10 @@ export default function BottomTabNavigator() {
         tabBarStyle: {
           backgroundColor: 'transparent',
           borderTopColor: '#66666666',
-          elevation: 0,
+          elevation: 1,
         },
-        tabBarActiveTintColor: Colors.white.active,
-        tabBarInactiveTintColor: Colors.grey.inactive,
+        tabBarActiveTintColor: Colors.white.tabIconSelected,
+        tabBarInactiveTintColor: Colors.grey.tabIconUnselected,
       }}
     >
       <BottomTab.Screen
