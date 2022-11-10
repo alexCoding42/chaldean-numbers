@@ -7,19 +7,19 @@ import {
 } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { NumbersNavigationProp } from '../../navigation/types';
 import { Colors } from '../../theme/colors';
 import { IChaldeanNumber } from '../../types';
+import { NumberDetailsNavigationProp } from '../../navigation/types';
 
 const { width } = Dimensions.get('screen');
 
 export default function CardNumber({ item }: { item: IChaldeanNumber }) {
-  const navigation = useNavigation<NumbersNavigationProp>();
+  const navigation = useNavigation<NumberDetailsNavigationProp>();
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       key={item.id}
-      onPress={() => navigation.navigate('NumberDetails', item)}
+      onPress={() => navigation.navigate('Details', item)}
     >
       <View style={styles.card}>
         <Text style={styles.cardTextNumericValue}>{item.chaldean}</Text>

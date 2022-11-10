@@ -3,8 +3,11 @@ import {
   CompositeScreenProps,
   NavigatorScreenParams,
 } from '@react-navigation/native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { IError } from '../types';
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
+import { IChaldeanNumber, IError } from '../types';
 
 declare global {
   namespace ReactNavigation {
@@ -29,8 +32,24 @@ export type RootTabParamList = {
   Account: undefined;
 };
 
+export type NumberStackParamList = {
+  List: undefined;
+  Details: IChaldeanNumber;
+};
+
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   CompositeScreenProps<
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export type NumberStackScreenProps<Screen extends keyof NumberStackParamList> =
+  CompositeScreenProps<
+    BottomTabScreenProps<NumberStackParamList, Screen>,
+    NativeStackScreenProps<RootStackParamList>
+  >;
+
+export type NumberDetailsNavigationProp = NativeStackNavigationProp<
+  NumberStackParamList,
+  'Details'
+>;

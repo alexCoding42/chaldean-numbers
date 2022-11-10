@@ -8,15 +8,14 @@ import {
   LoadingSpinner,
 } from '../../components/atoms';
 
-import { RootTabScreenProps } from '../../navigation/types';
+import { NumberStackScreenProps } from '../../navigation/types';
 import { IChaldeanNumber } from '../../types';
-import { showAlert } from '../../utils/alert';
 import { getNumberList } from './queries';
 import styles from './styles';
 
 export default function NumberListScreen({
   navigation,
-}: RootTabScreenProps<'NumberList'>) {
+}: NumberStackScreenProps<'List'>) {
   const tabBarHeight = useBottomTabBarHeight();
   const { data, loading, error } = useQuery(getNumberList);
 
