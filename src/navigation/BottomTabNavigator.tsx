@@ -1,9 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { DateScreen, NameScreen, NumberListScreen } from '../screens';
+import {
+  AccountScreen,
+  DateScreen,
+  NameScreen,
+  NumberListScreen,
+} from '../screens';
 import { RootTabParamList, RootTabScreenProps } from './types';
 import { BluredTabBar, TabBarIcon } from '../components/atoms';
 import { Colors } from '../theme/colors';
-import AccountScreen from '../screens/AccountScreen';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 

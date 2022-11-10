@@ -2,7 +2,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import React, { createRef, useState } from 'react';
 import {
   Keyboard,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,

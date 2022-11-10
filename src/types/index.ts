@@ -9,3 +9,8 @@ export interface IChaldeanNumber {
   phrase_title?: string;
   phrase_description?: string;
 }
+
+export interface IError {
+  errorTitle: string;
+  errorMessage: string;
+}
