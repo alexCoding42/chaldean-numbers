@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Colors } from '../../theme/colors';
 import { IChaldeanNumber } from '../../types';
 import { NumberDetailsNavigationProp } from '../../navigation/types';
+import { Spacings } from '../../theme/layouts';
 
 const { width } = Dimensions.get('screen');
 
@@ -31,11 +32,11 @@ export default function CardNumber({ item }: { item: IChaldeanNumber }) {
 
 const styles = StyleSheet.create({
   card: {
-    margin: 10,
-    width: width / 2.5,
+    margin: Spacings.XS,
+    width: width / 2 - Spacings.SM,
     height: 80,
     backgroundColor: Colors.white.default,
-    marginBottom: 10,
+    padding: Spacings.XXS,
     borderRadius: 7,
     justifyContent: 'center',
     alignItems: 'center',
