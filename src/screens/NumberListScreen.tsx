@@ -4,13 +4,13 @@ import { LinearGradientBackground } from '../components/atoms';
 import { RootTabScreenProps } from '../navigation/types';
 import { Colors } from '../theme/colors';
 
-export default function AccountScreen({
+export default function NumberListScreen({
   navigation,
-}: RootTabScreenProps<'Account'>) {
+}: RootTabScreenProps<'NumberList'>) {
   return (
     <LinearGradientBackground>
       <View style={styles.container}>
-        <Text style={styles.title}>Account Screen</Text>
+        <Text style={styles.title}>Number List Screen</Text>
       </View>
     </LinearGradientBackground>
   );
