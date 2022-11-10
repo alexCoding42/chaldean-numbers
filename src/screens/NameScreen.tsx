@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
-import {} from '../components/Themed';
+import { LinearGradientBackground } from '../components/atoms';
+import { Colors } from '../theme/colors';
 
 export default function NameScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Name Screen</Text>
-    </View>
+    <LinearGradientBackground>
+      <View style={styles.container}>
+        <Text style={styles.title}>Name Screen</Text>
+      </View>
+    </LinearGradientBackground>
   );
 }
 
@@ -18,5 +21,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: Colors.white.default,
   },
 });
