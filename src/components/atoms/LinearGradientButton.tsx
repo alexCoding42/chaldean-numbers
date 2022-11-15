@@ -14,6 +14,7 @@ type LinearGradientButtonProps = {
   buttonText: string;
   isLoading?: boolean;
   colors?: string[];
+  style?: TouchableOpacity['props']['style'];
 };
 
 export default function LinearGradientButton({
@@ -21,12 +22,14 @@ export default function LinearGradientButton({
   buttonText,
   isLoading = false,
   colors = Gradients.green.default,
+  style,
 }: LinearGradientButtonProps) {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       onPress={onPress}
       disabled={isLoading}
+      style={style}
     >
       <LinearGradient
         colors={colors}

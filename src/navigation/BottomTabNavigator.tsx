@@ -1,9 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { AccountScreen, DateScreen, NameScreen } from '../screens';
+import { DateScreen, NameScreen } from '../screens';
 import { RootTabParamList, RootTabScreenProps } from './types';
 import { BluredTabBar, TabBarIcon } from '../components/atoms';
 import { Colors } from '../theme/colors';
-import NumberStackNavigator from './NumberStackNavigator';
+import NumberNavigator from './NumberNavigator';
+import AccountNavigator from './AccountNavigator';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -44,7 +45,7 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name='NumberList'
-        component={NumberStackNavigator}
+        component={NumberNavigator}
         options={{
           title: 'List',
           tabBarIcon: ({ color }) => (
@@ -54,7 +55,7 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name='Account'
-        component={AccountScreen}
+        component={AccountNavigator}
         options={{
           title: 'Account',
           tabBarIcon: ({ color }) => <TabBarIcon name='user' color={color} />,

@@ -5,7 +5,7 @@ import { NumberStackParamList } from './types';
 
 const NumberStack = createNativeStackNavigator<NumberStackParamList>();
 
-export default function NumberStackNavigator() {
+export default function NumberNavigator() {
   return (
     <NumberStack.Navigator
       initialRouteName='List'

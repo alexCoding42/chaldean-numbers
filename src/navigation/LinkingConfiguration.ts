@@ -22,11 +22,15 @@ const linking: LinkingOptions<RootStackParamList> = {
           NumberList: {
             screens: {
               NumberListScreen: 'number-list',
+              NumberDetailsScreen: 'details',
             },
           },
           Account: {
             screens: {
-              AccountScreen: 'account',
+              LoginScreen: 'login',
+              SignUpScreen: 'sign-up',
+              ProfileScreen: 'profile',
+              FavoriteScreen: 'favorite',
             },
           },
         },

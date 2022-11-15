@@ -37,6 +37,12 @@ export type NumberStackParamList = {
   Details: IChaldeanNumber;
 };
 
+export type AccountStackParamList = {
+  Login: undefined;
+  SignUp: undefined;
+  Profile: undefined;
+};
+
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   CompositeScreenProps<
     BottomTabScreenProps<RootTabParamList, Screen>,
@@ -48,6 +54,13 @@ export type NumberStackScreenProps<Screen extends keyof NumberStackParamList> =
     BottomTabScreenProps<NumberStackParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export type AccountStackScreenProps<
+  Screen extends keyof AccountStackParamList
+> = CompositeScreenProps<
+  BottomTabScreenProps<AccountStackParamList, Screen>,
+  NativeStackScreenProps<AccountStackParamList>
+>;
 
 export type NumberDetailsNavigationProp = NativeStackNavigationProp<
   NumberStackParamList,
