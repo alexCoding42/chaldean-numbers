@@ -1,4 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
 import { NumberDetailsScreen, NumberListScreen } from '../screens';
 import { Colors } from '../theme/colors';
 import { NumberStackParamList } from './types';
@@ -9,19 +11,32 @@ export default function NumberNavigator() {
   return (
     <NumberStack.Navigator
       initialRouteName='List'
-      screenOptions={{ headerShown: false }}
+      screenOptions={{
+        headerTitleStyle: { color: 'white' },
+        headerTintColor: Colors.white.default,
+        headerBackground: () => (
+          <LinearGradient
+            colors={[Colors.grey.light, Colors.grey.dark]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={{ flex: 1 }}
+          />
+        ),
+      }}
     >
-      <NumberStack.Screen name='List' component={NumberListScreen} />
+      <NumberStack.Screen
+        name='List'
+        component={NumberListScreen}
+        options={{
+          headerTitle: 'List of chaldean numbers',
+        }}
+      />
       <NumberStack.Screen
         name='Details'
         component={NumberDetailsScreen}
         options={{
-          headerShown: true,
           headerTitle: 'Details',
-          headerTitleStyle: { color: 'white' },
           headerBackTitleVisible: true,
-          headerTintColor: Colors.white.default,
-          headerStyle: { backgroundColor: Colors.black.default },
         }}
       />
     </NumberStack.Navigator>

@@ -19,7 +19,7 @@ export default function BottomTabNavigator() {
         tabBarStyle: {
           backgroundColor: 'transparent',
           borderTopColor: '#66666666',
-          elevation: 1,
+          elevation: 0.5,
         },
         tabBarActiveTintColor: Colors.white.tabIconSelected,
         tabBarInactiveTintColor: Colors.grey.tabIconUnselected,

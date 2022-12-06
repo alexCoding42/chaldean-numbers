@@ -31,22 +31,19 @@ export default function NumberListScreen({
   return (
     <LinearGradientBackground>
       <View style={styles.container}>
-        <Text style={styles.title}>List of chaldean numbers</Text>
-        <View style={styles.contentView}>
-          {loading ? (
-            <LoadingSpinner />
-          ) : (
-            <FlatList
-              data={data.numbers}
-              numColumns={2}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ paddingBottom: tabBarHeight }}
-              renderItem={({ item }: { item: IChaldeanNumber }) => (
-                <CardNumber item={item} />
-              )}
-            />
-          )}
-        </View>
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+          <FlatList
+            data={data.numbers}
+            numColumns={2}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ paddingBottom: tabBarHeight }}
+            renderItem={({ item }: { item: IChaldeanNumber }) => (
+              <CardNumber item={item} />
+            )}
+          />
+        )}
       </View>
     </LinearGradientBackground>
   );
