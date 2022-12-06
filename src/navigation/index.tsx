@@ -37,7 +37,7 @@ function RootNavigator() {
         component={ErrorScreen}
         options={{
           headerStyle: {
-            backgroundColor: Colors.red.default,
+            backgroundColor: Colors.grey.dark,
           },
           headerTitleStyle: { color: Colors.white.default },
           headerBackVisible: false,
