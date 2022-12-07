@@ -14,12 +14,12 @@ import {
   LinearGradientButton,
 } from '../../components/atoms';
 import styles from './styles';
-import { showAlert } from '../../utils/alert';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../theme/colors';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AccountStackScreenProps } from '../../navigation/types';
 import { useSignInEmailPassword } from '@nhost/react';
+import { ALERT_TYPE, Dialog } from 'react-native-alert-notification';
 
 export default function LoginScreen({
   navigation,
@@ -35,7 +35,12 @@ export default function LoginScreen({
 
   const handleLogin = async () => {
     if (!email || !password) {
-      showAlert('You must fill all fields');
+      Dialog.show({
+        type: ALERT_TYPE.DANGER,
+        title: 'Error',
+        textBody: 'You must to fill all the fields',
+        button: 'Close',
+      });
       return;
     }
 
@@ -47,7 +52,12 @@ export default function LoginScreen({
         throw new Error(res?.error?.message);
       }
     } catch (error) {
-      showAlert((error as Error).message);
+      Dialog.show({
+        type: ALERT_TYPE.DANGER,
+        title: 'Error',
+        textBody: (error as Error).message,
+        button: 'Close',
+      });
     }
   };
 

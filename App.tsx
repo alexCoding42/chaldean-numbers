@@ -6,6 +6,8 @@ import Storage from '@react-native-async-storage/async-storage';
 
 import useCachedResources from './src/hooks/useCachedResources';
 import Navigation from './src/navigation';
+import React from 'react';
+import { AlertNotificationRoot } from 'react-native-alert-notification';
 
 const nhost = new NhostClient({
   subdomain: 'pyfkyftcjbknfrcbvxtw',
@@ -23,10 +25,12 @@ export default function App() {
     return (
       <NhostReactProvider nhost={nhost}>
         <NhostApolloProvider nhost={nhost}>
-          <SafeAreaProvider>
-            <Navigation />
-            <StatusBar style='light' />
-          </SafeAreaProvider>
+          <AlertNotificationRoot theme='light'>
+            <SafeAreaProvider>
+              <Navigation />
+              <StatusBar style='light' />
+            </SafeAreaProvider>
+          </AlertNotificationRoot>
         </NhostApolloProvider>
       </NhostReactProvider>
     );

@@ -16,11 +16,11 @@ import {
 } from '../../components/atoms';
 import { CHALDEAN_NUMBERS } from '../../constants/ChaldeanNumbers';
 import { Colors } from '../../theme/colors';
-import { showAlert } from '../../utils/alert';
 import {
   getArrayOfNumbersFromSplittedName,
   getTotal,
 } from '../../utils/computation';
+import { ALERT_TYPE, Dialog } from 'react-native-alert-notification';
 
 export default function NameScreen() {
   const validName = '^[a-zA-Z0-9\\s]+$';
@@ -38,7 +38,12 @@ export default function NameScreen() {
     if (name === '') {
       return;
     } else if (!name.match(validName)) {
-      showAlert('Name can only contain letter and number');
+      Dialog.show({
+        type: ALERT_TYPE.WARNING,
+        title: 'Warning',
+        textBody: 'Name can only contain letter and number',
+        button: 'Close',
+      });
       return;
     }
     Keyboard.dismiss();
