@@ -48,7 +48,7 @@ export type NotAuthenticatedStackParamList = {
   NotAuthenticated: undefined;
   Login: undefined;
   SignUp: undefined;
-  LegalMentions: undefined;
+  LegalInformation: undefined;
   PrivacyPolicy: undefined;
 };
 

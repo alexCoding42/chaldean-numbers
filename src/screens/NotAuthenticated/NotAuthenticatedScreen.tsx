@@ -6,57 +6,41 @@ import {
   LinearGradientButton,
   OutlineButton,
 } from '../../components/atoms';
-import { Colors } from '../../theme/colors';
-import { Spacings } from '../../theme/layouts';
 import { NotAuthenticatedStackScreenProps } from '../../navigation/types';
+import styles from './styles';
 
 const NotAuthenticatedScreen = ({
   navigation,
 }: NotAuthenticatedStackScreenProps<'NotAuthenticated'>) => {
   return (
     <LinearGradientBackground>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingHorizontal: Spacings.SM,
-        }}
-      >
-        <Text
-          style={{
-            color: Colors.white.default,
-            fontSize: 18,
-            textAlign: 'left',
-          }}
-        >
+      <View style={styles.container}>
+        <Text style={styles.title}>
           Login into your account or create a new account to retrieve your
           favorites and access to your settings
         </Text>
         <LinearGradientButton
-          style={{ marginTop: Spacings.SM, width: '100%' }}
+          style={styles.button}
           buttonText='Login'
           onPress={() => navigation.navigate('Login')}
         />
         <OutlineButton
-          style={{ marginTop: Spacings.SM, width: '100%' }}
+          style={styles.button}
           buttonText='Create a new account'
           onPress={() => navigation.navigate('SignUp')}
         />
         <Divider />
         <TouchableOpacity
-          style={{ alignSelf: 'flex-start', marginTop: Spacings.XS }}
-          onPress={() => navigation.navigate('LegalMentions')}
+          style={styles.touchable}
+          onPress={() => navigation.navigate('LegalInformation')}
         >
-          <Text style={{ color: Colors.white.default }}>
-            Read legal mentions
-          </Text>
+          <Text style={styles.text}>Legal information</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{ alignSelf: 'flex-start', marginTop: Spacings.XS }}
+          style={styles.touchable}
           onPress={() => navigation.navigate('PrivacyPolicy')}
         >
-          <Text style={{ color: Colors.white.default }}>Privacy Policy</Text>
+          <Text style={styles.text}>Privacy Policy</Text>
         </TouchableOpacity>
       </View>
     </LinearGradientBackground>

@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
-  LegalMentionsScreen,
+  LegalInformationScreen,
   LoginScreen,
   NotAuthenticatedScreen,
   PrivacyPolicyScreen,
@@ -46,11 +46,11 @@ export default function NotAuthenticatedNavigator() {
         }}
       />
       <NotAuthenticatedStack.Screen
-        name='LegalMentions'
-        component={LegalMentionsScreen}
+        name='LegalInformation'
+        component={LegalInformationScreen}
         options={{
           headerShown: true,
-          headerTitle: 'Legal Mentions',
+          headerTitle: 'Legal Information',
           ...defaultOptions,
         }}
       />

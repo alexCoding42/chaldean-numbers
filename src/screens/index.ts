@@ -1,7 +1,7 @@
 export { default as AccountScreen } from './Account/AccountScreen';
 export { default as DateScreen } from './Date/DateScreen';
 export { default as ErrorScreen } from './Error/ErrorScreen';
-export { default as LegalMentionsScreen } from './LegalMentions/LegalMentionsScreen';
+export { default as LegalInformationScreen } from './LegalInformation/LegalInformationScreen';
 export { default as LoginScreen } from './Login/LoginScreen';
 export { default as ModalScreen } from './ModalScreen';
 export { default as NameScreen } from './Name/NameScreen';
