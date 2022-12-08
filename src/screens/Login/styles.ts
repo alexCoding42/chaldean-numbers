@@ -3,14 +3,10 @@ import { Colors } from '../../theme/colors';
 import { Borders, Spacings } from '../../theme/layouts';
 
 const styles = StyleSheet.create({
-  safeAreaViewContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: Spacings.SM,
-  },
   container: {
-    width: '100%',
+    flex: 1,
+    paddingTop: Spacings.M,
+    paddingHorizontal: Spacings.SM,
   },
   title: {
     color: Colors.white.default,

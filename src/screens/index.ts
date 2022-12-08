@@ -1,11 +1,14 @@
 export { default as AccountScreen } from './Account/AccountScreen';
 export { default as DateScreen } from './Date/DateScreen';
 export { default as ErrorScreen } from './Error/ErrorScreen';
+export { default as LegalMentionsScreen } from './LegalMentions/LegalMentionsScreen';
 export { default as LoginScreen } from './Login/LoginScreen';
 export { default as ModalScreen } from './ModalScreen';
 export { default as NameScreen } from './Name/NameScreen';
+export { default as NotAuthenticatedScreen } from './NotAuthenticated/NotAuthenticatedScreen';
 export { default as NotFoundScreen } from './NotFoundScreen';
 export { default as NumberDetailsScreen } from './NumberDetails/NumberDetailsScreen';
 export { default as NumberListScreen } from './NumberList/NumberListScreen';
+export { default as PrivacyPolicyScreen } from './PrivacyPolicy/PrivacyPolicyScreen';
 export { default as ProfileScreen } from './Profile/ProfileScreen';
 export { default as SignUpScreen } from './SignUp/SignUpScreen';

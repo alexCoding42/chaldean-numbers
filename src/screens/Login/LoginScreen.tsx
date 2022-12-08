@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
 } from 'react-native';
 import React, { useRef, useState } from 'react';
 import {
@@ -14,7 +15,6 @@ import {
   LinearGradientButton,
 } from '../../components/atoms';
 import styles from './styles';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../theme/colors';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AccountStackScreenProps } from '../../navigation/types';
@@ -72,9 +72,8 @@ export default function LoginScreen({
         style={{ flex: 1 }}
       >
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-          <SafeAreaView style={styles.safeAreaViewContainer}>
+          <ScrollView>
             <View style={styles.container}>
-              <Text style={styles.title}>Login and access your favorites</Text>
               <Text style={styles.textInputTitle}>Email</Text>
               <View style={styles.textInputContainer}>
                 <TextInput
@@ -139,7 +138,7 @@ export default function LoginScreen({
                 </Text>
               </TouchableOpacity>
             </View>
-          </SafeAreaView>
+          </ScrollView>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </LinearGradientBackground>

@@ -1,7 +1,8 @@
 import { useAuthenticationStatus } from '@nhost/react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoadingSpinner } from '../components/atoms';
-import { LoginScreen, ProfileScreen, SignUpScreen } from '../screens';
+import { ProfileScreen } from '../screens';
+import NotAuthenticatedNavigator from './NotAuthenticatedNavigator';
 import { AccountStackParamList } from './types';
 
 const AccountStack = createNativeStackNavigator<AccountStackParamList>();
@@ -15,16 +16,16 @@ export default function AccountNavigator() {
 
   return (
     <AccountStack.Navigator
-      initialRouteName='Login'
+      initialRouteName='NotAuthenticatedNavigator'
       screenOptions={{ headerShown: false }}
     >
       {isAuthenticated ? (
         <AccountStack.Screen name='Profile' component={ProfileScreen} />
       ) : (
-        <>
-          <AccountStack.Screen name='Login' component={LoginScreen} />
-          <AccountStack.Screen name='SignUp' component={SignUpScreen} />
-        </>
+        <AccountStack.Screen
+          name='NotAuthenticatedNavigator'
+          component={NotAuthenticatedNavigator}
+        />
       )}
     </AccountStack.Navigator>
   );

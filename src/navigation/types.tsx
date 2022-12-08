@@ -38,9 +38,18 @@ export type NumberStackParamList = {
 };
 
 export type AccountStackParamList = {
+  Profile: undefined;
   Login: undefined;
   SignUp: undefined;
-  Profile: undefined;
+  NotAuthenticatedNavigator: undefined;
+};
+
+export type NotAuthenticatedStackParamList = {
+  NotAuthenticated: undefined;
+  Login: undefined;
+  SignUp: undefined;
+  LegalMentions: undefined;
+  PrivacyPolicy: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
@@ -60,6 +69,13 @@ export type AccountStackScreenProps<
 > = CompositeScreenProps<
   BottomTabScreenProps<AccountStackParamList, Screen>,
   NativeStackScreenProps<AccountStackParamList>
+>;
+
+export type NotAuthenticatedStackScreenProps<
+  Screen extends keyof NotAuthenticatedStackParamList
+> = CompositeScreenProps<
+  BottomTabScreenProps<NotAuthenticatedStackParamList, Screen>,
+  NativeStackScreenProps<NotAuthenticatedStackParamList>
 >;
 
 export type NumberDetailsNavigationProp = NativeStackNavigationProp<

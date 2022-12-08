@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
 } from 'react-native';
 import React, { createRef, useState } from 'react';
 import {
@@ -78,9 +79,8 @@ export default function SignUpScreen({
         style={{ flex: 1 }}
       >
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-          <SafeAreaView style={styles.safeAreaViewContainer}>
+          <ScrollView>
             <View style={styles.container}>
-              <Text style={styles.title}>Create a new account</Text>
               <Text style={styles.textInputTitle}>Email</Text>
               <View style={styles.textInputContainer}>
                 <TextInput
@@ -173,7 +173,7 @@ export default function SignUpScreen({
                 </Text>
               </TouchableOpacity>
             </View>
-          </SafeAreaView>
+          </ScrollView>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </LinearGradientBackground>
