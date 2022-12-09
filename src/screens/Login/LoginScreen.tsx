@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Alert,
 } from 'react-native';
 import React, { useRef, useState } from 'react';
 import {
@@ -19,7 +20,6 @@ import { Colors } from '../../theme/colors';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AccountStackScreenProps } from '../../navigation/types';
 import { useSignInEmailPassword } from '@nhost/react';
-import { ALERT_TYPE, Dialog } from 'react-native-alert-notification';
 
 export default function LoginScreen({
   navigation,
@@ -35,12 +35,7 @@ export default function LoginScreen({
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Dialog.show({
-        type: ALERT_TYPE.DANGER,
-        title: 'Error',
-        textBody: 'You must to fill all the fields',
-        button: 'Close',
-      });
+      Alert.alert('Error', 'You must fill all the fields');
       return;
     }
 
@@ -52,17 +47,12 @@ export default function LoginScreen({
         throw new Error(res?.error?.message);
       }
     } catch (error) {
-      Dialog.show({
-        type: ALERT_TYPE.DANGER,
-        title: 'Error',
-        textBody: (error as Error).message,
-        button: 'Close',
-      });
+      Alert.alert('Error', (error as Error).message);
     }
   };
 
   if (isSuccess) {
-    navigation.navigate('Profile');
+    navigation.navigate('ProfileNavigator');
   }
 
   return (

@@ -8,19 +8,18 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Alert,
 } from 'react-native';
 import React, { createRef, useState } from 'react';
 import {
   LinearGradientBackground,
   LinearGradientButton,
 } from '../../components/atoms';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../theme/colors';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AccountStackScreenProps } from '../../navigation/types';
 import styles from './styles';
 import { useSignUpEmailPassword } from '@nhost/react';
-import { ALERT_TYPE, Dialog } from 'react-native-alert-notification';
 
 export default function SignUpScreen({
   navigation,
@@ -38,20 +37,10 @@ export default function SignUpScreen({
   const handleSignUp = async () => {
     try {
       if (!email || !password || !confirmPassword) {
-        Dialog.show({
-          type: ALERT_TYPE.DANGER,
-          title: 'Error',
-          textBody: 'You must to fill all the fields',
-          button: 'Close',
-        });
+        Alert.alert('Error', 'You must fill all the fields');
         return;
       } else if (password !== confirmPassword) {
-        Dialog.show({
-          type: ALERT_TYPE.DANGER,
-          title: 'Error',
-          textBody: 'Passwords do not match',
-          button: 'Close',
-        });
+        Alert.alert('Error', 'Passwords do not match');
         return;
       }
       const res = await signUpEmailPassword(email.trim(), password.trim(), {
@@ -63,12 +52,7 @@ export default function SignUpScreen({
         navigation.navigate('Login');
       }
     } catch (error) {
-      Dialog.show({
-        type: ALERT_TYPE.DANGER,
-        title: 'Error',
-        textBody: (error as Error).message,
-        button: 'Close',
-      });
+      Alert.alert('Error', (error as Error).message);
     }
   };
 

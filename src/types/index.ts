@@ -14,3 +14,10 @@ export interface IError {
   errorTitle: string;
   errorMessage: string;
 }
+
+export interface IFavorite {
+  id: string;
+  type: string;
+  value: string;
+  userId: string;
+}

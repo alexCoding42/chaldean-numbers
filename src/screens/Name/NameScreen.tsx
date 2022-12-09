@@ -1,6 +1,7 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import React, { createRef, useState } from 'react';
 import {
+  Alert,
   Keyboard,
   Text,
   TextInput,
@@ -20,7 +21,6 @@ import {
   getArrayOfNumbersFromSplittedName,
   getTotal,
 } from '../../utils/computation';
-import { ALERT_TYPE, Dialog } from 'react-native-alert-notification';
 
 export default function NameScreen() {
   const validName = '^[a-zA-Z0-9\\s]+$';
@@ -38,12 +38,7 @@ export default function NameScreen() {
     if (name === '') {
       return;
     } else if (!name.match(validName)) {
-      Dialog.show({
-        type: ALERT_TYPE.WARNING,
-        title: 'Warning',
-        textBody: 'Name can only contain letter and number',
-        button: 'Close',
-      });
+      Alert.alert('Warning', 'Name can only contain letter and number');
       return;
     }
     Keyboard.dismiss();
