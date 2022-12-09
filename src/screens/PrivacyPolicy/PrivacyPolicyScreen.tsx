@@ -1,9 +1,8 @@
-import { View, Text, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
 import RenderHtml from 'react-native-render-html';
 import { LinearGradientBackground } from '../../components/atoms';
-import { Colors } from '../../theme/colors';
 import { Spacings } from '../../theme/layouts';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 

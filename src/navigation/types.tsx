@@ -54,7 +54,6 @@ export type NotAuthenticatedStackParamList = {
 
 export type ProfileStackParamList = {
   Profile: undefined;
-  Account: undefined;
   Favorites: undefined;
   PrivacyPolicy: undefined;
   LegalInformation: undefined;

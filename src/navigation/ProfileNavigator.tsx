@@ -25,7 +25,6 @@ export default function ProfileNavigator() {
       screenOptions={defaultOptions}
     >
       <ProfileStack.Screen name='Profile' component={ProfileScreen} />
-      <ProfileStack.Screen name='Account' component={AccountScreen} />
       <ProfileStack.Screen name='Favorites' component={FavoritesScreen} />
       <ProfileStack.Screen
         name='PrivacyPolicy'

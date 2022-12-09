@@ -1,4 +1,3 @@
-export { default as AccountScreen } from './Account/AccountScreen';
 export { default as DateScreen } from './Date/DateScreen';
 export { default as ErrorScreen } from './Error/ErrorScreen';
 export { default as FavoritesScreen } from './Favorites/FavoritesScreen';
