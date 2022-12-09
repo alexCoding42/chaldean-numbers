@@ -42,6 +42,32 @@ export default function ProfileScreen({
           <Text style={styles.textOption}>My favorites</Text>
           <MaterialIcons size={30} name='chevron-right' />
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.option}
+          onPress={() => navigation.navigate('LegalInformation')}
+        >
+          <FontAwesome
+            style={styles.icon}
+            size={30}
+            name='legal'
+            color={Colors.green.light}
+          />
+          <Text style={styles.textOption}>Legal Information</Text>
+          <MaterialIcons size={30} name='chevron-right' />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.option}
+          onPress={() => navigation.navigate('PrivacyPolicy')}
+        >
+          <MaterialIcons
+            style={styles.icon}
+            size={30}
+            name='policy'
+            color={Colors.green.light}
+          />
+          <Text style={styles.textOption}>Privacy Policy</Text>
+          <MaterialIcons size={30} name='chevron-right' />
+        </TouchableOpacity>
         <TouchableOpacity style={styles.option} onPress={signOut}>
           <MaterialIcons
             style={styles.icon}

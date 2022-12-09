@@ -1,5 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AccountScreen, FavoritesScreen, ProfileScreen } from '../screens';
+import {
+  AccountScreen,
+  FavoritesScreen,
+  LegalInformationScreen,
+  PrivacyPolicyScreen,
+  ProfileScreen,
+} from '../screens';
 import { Colors } from '../theme/colors';
 import HeaderBackground from './components/HeaderBackground';
 import { ProfileStackParamList } from './types';
@@ -12,7 +18,7 @@ const defaultOptions = {
   headerBackground: () => <HeaderBackground />,
 };
 
-export default function NotAuthenticatedNavigator() {
+export default function ProfileNavigator() {
   return (
     <ProfileStack.Navigator
       initialRouteName='Profile'
@@ -21,6 +27,16 @@ export default function NotAuthenticatedNavigator() {
       <ProfileStack.Screen name='Profile' component={ProfileScreen} />
       <ProfileStack.Screen name='Account' component={AccountScreen} />
       <ProfileStack.Screen name='Favorites' component={FavoritesScreen} />
+      <ProfileStack.Screen
+        name='PrivacyPolicy'
+        component={PrivacyPolicyScreen}
+        options={{ title: 'Privacy Policy' }}
+      />
+      <ProfileStack.Screen
+        name='LegalInformation'
+        component={LegalInformationScreen}
+        options={{ title: 'Legal Information' }}
+      />
     </ProfileStack.Navigator>
   );
 }

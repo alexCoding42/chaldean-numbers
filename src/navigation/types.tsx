@@ -56,6 +56,8 @@ export type ProfileStackParamList = {
   Profile: undefined;
   Account: undefined;
   Favorites: undefined;
+  PrivacyPolicy: undefined;
+  LegalInformation: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
