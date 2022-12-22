@@ -1,5 +1,5 @@
 import { MaterialIcons } from '@expo/vector-icons';
-import React, { createRef, useState } from 'react';
+import React, { createRef, useCallback, useState } from 'react';
 import {
   Alert,
   Keyboard,
@@ -21,8 +21,19 @@ import {
   getArrayOfNumbersFromSplittedName,
   getTotal,
 } from '../../utils/computation';
+import { useAuthenticationStatus, useUserData } from '@nhost/react';
+import { useLazyQuery, useMutation } from '@apollo/client';
+import { IFavorite } from '../../types';
+import {
+  ADD_FAVORITE,
+  DELETE_FAVORITE,
+  GET_FAVORITES,
+} from '../../graphql/queries';
 
 export default function NameScreen() {
+  const { isAuthenticated } = useAuthenticationStatus();
+  const user = useUserData();
+
   const validName = '^[a-zA-Z0-9\\s]+$';
   const inputDateRef = createRef<TextInput>();
 
@@ -30,8 +41,23 @@ export default function NameScreen() {
   const [firstSubNumber, setFirstSubNumber] = useState<number | null>(null);
   const [chaldeanResult, setChaldeanResult] = useState<number | null>(null);
   const [isButtonLoading, setIsButtonLoading] = useState(false);
+  const [isNameFavorite, setIsNameFavorite] = useState<boolean | undefined>(
+    false
+  );
+  const [nameFavoriteId, setNameFavoriteId] = useState('');
 
-  const calculateName = () => {
+  const [getFavorites, { loading: isfetchingFavorites }] = useLazyQuery(
+    GET_FAVORITES,
+    {
+      fetchPolicy: 'network-only',
+    }
+  );
+
+  const [insertFavorite] = useMutation(ADD_FAVORITE);
+
+  const [removeFavorite] = useMutation(DELETE_FAVORITE);
+
+  const calculateName = async () => {
     setFirstSubNumber(null);
     setChaldeanResult(null);
     const name = inputName.trim();
@@ -43,6 +69,10 @@ export default function NameScreen() {
     }
     Keyboard.dismiss();
     setIsButtonLoading(true);
+
+    const favoriteData = await checkIfNameIsFavorite();
+    setIsNameFavorite(favoriteData?.isNameFavorite);
+    setNameFavoriteId(favoriteData?.nameFavoriteId);
 
     setTimeout(() => {
       const arrayOfNumbersFromName = splitNameAndReturnArrayOfNumbers(name);
@@ -86,6 +116,76 @@ export default function NameScreen() {
     return getArrayOfNumbersFromSplittedName(splittedName);
   };
 
+  const handleFavorite = async () => {
+    if (isNameFavorite) {
+      deleteFavorite();
+    } else {
+      addFavorite();
+    }
+  };
+
+  const addFavorite = async () => {
+    try {
+      const res = await insertFavorite({
+        variables: {
+          type: 'name',
+          value: inputName.trim().toLowerCase(),
+          userId: user?.id,
+        },
+      });
+      setIsNameFavorite(true);
+      setNameFavoriteId(res.data.insert_favorites.returning[0].id);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteFavorite = async () => {
+    try {
+      await removeFavorite({
+        variables: {
+          id: nameFavoriteId,
+        },
+      });
+      setIsNameFavorite(false);
+      setNameFavoriteId('');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const checkIfNameIsFavorite = async () => {
+    try {
+      const name = inputName.trim().toLowerCase();
+      const { data } = await getFavorites();
+
+      if (isfetchingFavorites) {
+        return { isNameFavorite: false, nameFavoriteId: '' };
+      } else if (data) {
+        const favorite = data.favorites.find(
+          (fav: IFavorite) => fav.value === name
+        );
+        return {
+          isNameFavorite: favorite?.id != null,
+          nameFavoriteId: favorite?.id ?? '',
+        };
+      }
+    } catch (error) {
+      console.error(error);
+      return { isNameFavorite: false, nameFavoriteId: '' };
+    }
+  };
+
+  const renderFavoriteIcon = useCallback(() => {
+    return (
+      <MaterialIcons
+        name={isNameFavorite ? 'favorite' : 'favorite-outline'}
+        size={18}
+        color={Colors.red.default}
+      />
+    );
+  }, [isNameFavorite]);
+
   return (
     <LinearGradientBackground>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -115,23 +215,25 @@ export default function NameScreen() {
             <LinearGradientButton
               buttonText='Calculate'
               onPress={calculateName}
-              isLoading={isButtonLoading}
+              isLoading={isButtonLoading || isfetchingFavorites}
             />
+
             <View style={styles.resultContainer}>
               {firstSubNumber ? (
                 <View style={styles.resultSection}>
                   <Text style={styles.resultLabel}>First Sub Number:</Text>
-                  <>
-                    <Text style={styles.resultText}>{firstSubNumber}</Text>
-                  </>
+                  <Text style={styles.resultText}>{firstSubNumber}</Text>
                 </View>
               ) : null}
               {chaldeanResult ? (
                 <View style={styles.resultSection}>
                   <Text style={styles.resultLabel}>Chaldean:</Text>
-                  <>
-                    <Text style={styles.resultText}>{chaldeanResult}</Text>
-                  </>
+                  <Text style={styles.resultText}>{chaldeanResult}</Text>
+                  {isAuthenticated && (
+                    <TouchableOpacity onPress={handleFavorite}>
+                      {renderFavoriteIcon()}
+                    </TouchableOpacity>
+                  )}
                 </View>
               ) : null}
             </View>

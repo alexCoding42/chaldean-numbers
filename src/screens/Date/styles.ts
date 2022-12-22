@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
   },
   resultSection: {
     flexDirection: 'row',
+    alignItems: 'center',
     paddingBottom: 12,
   },
   resultLabel: {
