@@ -24,10 +24,12 @@ import { useSignUpEmailPassword } from '@nhost/react';
 export default function SignUpScreen({
   navigation,
 }: AccountStackScreenProps<'SignUp'>) {
+  const usernameInputRef = createRef<TextInput>();
   const emailInputRef = createRef<TextInput>();
   const passwordInputRef = createRef<TextInput>();
   const confirmPasswordInputRef = createRef<TextInput>();
 
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -36,7 +38,7 @@ export default function SignUpScreen({
 
   const handleSignUp = async () => {
     try {
-      if (!email || !password || !confirmPassword) {
+      if (!username || !email || !password || !confirmPassword) {
         Alert.alert('Error', 'You must fill all the fields');
         return;
       } else if (password !== confirmPassword) {
@@ -44,6 +46,7 @@ export default function SignUpScreen({
         return;
       }
       const res = await signUpEmailPassword(email.trim(), password.trim(), {
+        displayName: username.trim(),
         allowedRoles: ['user'],
       });
       if (res.isError) {
@@ -65,6 +68,32 @@ export default function SignUpScreen({
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
           <ScrollView>
             <View style={styles.container}>
+              <Text style={styles.textInputTitle}>Username</Text>
+              <View style={styles.textInputContainer}>
+                <TextInput
+                  ref={usernameInputRef}
+                  returnKeyType='next'
+                  keyboardType='default'
+                  placeholder='Username'
+                  placeholderTextColor={Colors.grey.tabIconUnselected}
+                  autoCapitalize='none'
+                  style={styles.input}
+                  value={username}
+                  onChangeText={(value) => setUsername(value)}
+                  onSubmitEditing={() => emailInputRef.current?.focus()}
+                  blurOnSubmit={false}
+                />
+                <TouchableOpacity
+                  style={styles.clearIcon}
+                  onPress={() => setUsername('')}
+                >
+                  <MaterialIcons
+                    color={Colors.white.default}
+                    name='clear'
+                    size={20}
+                  />
+                </TouchableOpacity>
+              </View>
               <Text style={styles.textInputTitle}>Email</Text>
               <View style={styles.textInputContainer}>
                 <TextInput
