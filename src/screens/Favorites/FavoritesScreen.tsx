@@ -9,9 +9,13 @@ import styles from './styles';
 import { useQuery } from '@apollo/client';
 import { GET_FAVORITES } from '../../graphql/queries';
 import { useFocusEffect } from '@react-navigation/native';
+import { useUserData } from '@nhost/react';
 
 export default function FavoritesScreen() {
-  const { data, loading, error, refetch } = useQuery(GET_FAVORITES);
+  const user = useUserData();
+  const { data, loading, error, refetch } = useQuery(GET_FAVORITES, {
+    variables: { userId: user?.id },
+  });
 
   useFocusEffect(() => {
     refetch();

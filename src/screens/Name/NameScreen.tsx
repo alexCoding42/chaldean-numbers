@@ -49,6 +49,9 @@ export default function NameScreen() {
   const [getFavorites, { loading: isfetchingFavorites }] = useLazyQuery(
     GET_FAVORITES,
     {
+      variables: {
+        userId: user?.id,
+      },
       fetchPolicy: 'network-only',
     }
   );

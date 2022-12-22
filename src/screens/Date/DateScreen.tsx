@@ -48,6 +48,9 @@ export default function DateScreen() {
   const [getFavorites, { loading: isfetchingFavorites }] = useLazyQuery(
     GET_FAVORITES,
     {
+      variables: {
+        userId: user?.id,
+      },
       fetchPolicy: 'network-only',
     }
   );
