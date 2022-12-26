@@ -10,10 +10,11 @@ import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { Colors } from '../../theme/colors';
 import { ProfileStackScreenProps } from '../../navigation/types';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { GET_FAVORITES } from '../../graphql/queries';
 import { useFocusEffect } from '@react-navigation/native';
 import { IFavorite } from '../../types';
+import { DELETE_USER } from './queries';
 
 export default function ProfileScreen({
   navigation,
@@ -23,6 +24,12 @@ export default function ProfileScreen({
 
   const { data, loading, error, refetch } = useQuery(GET_FAVORITES, {
     variables: { userId: user?.id },
+  });
+
+  const [deleteUser] = useMutation(DELETE_USER, {
+    variables: {
+      id: user?.id,
+    },
   });
 
   useFocusEffect(() => {
@@ -55,16 +62,30 @@ export default function ProfileScreen({
       [
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
+          onPress: () => {},
           style: 'cancel',
         },
         {
           text: 'Yes, delete my account',
           style: 'destructive',
-          onPress: () => console.log('OK Pressed'),
+          onPress: () => confirmDeleteUser(),
         },
       ]
     );
+  };
+
+  const confirmDeleteUser = async () => {
+    try {
+      const res = await deleteUser();
+      if (res.data.deleteUser.id) {
+        signOut();
+      }
+    } catch (error) {
+      Alert.alert(
+        'Error',
+        'An error has occurred. Please try again or contact the support.'
+      );
+    }
   };
 
   return (

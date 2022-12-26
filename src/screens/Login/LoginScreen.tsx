@@ -42,7 +42,9 @@ export default function LoginScreen({
     try {
       const res = await signInEmailPassword(email.trim(), password.trim());
       if (res.needsEmailVerification) {
-        throw new Error('You must verify your account first before login!');
+        throw new Error(
+          'Your account is not verified yet. Please verify your account first before login, by clicking on the email you received. If you did not receive any email you can ask for a new verification or contact the support.'
+        );
       } else if (res.isError) {
         throw new Error(res?.error?.message);
       }
