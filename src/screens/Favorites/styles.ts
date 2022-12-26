@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     color: Colors.white.default,
     fontWeight: '600',
   },
+  noFav: {
+    padding: Spacings.XS,
+    color: Colors.white.default,
+  },
 });
 
 export default styles;

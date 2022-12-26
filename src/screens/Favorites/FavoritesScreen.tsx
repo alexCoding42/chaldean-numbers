@@ -50,17 +50,25 @@ export default function FavoritesScreen() {
         <>
           <View>
             <Text style={styles.favoriteCategoryName}>Names</Text>
-            <FlatList
-              data={names}
-              renderItem={({ item }) => renderFavoriteItem(item)}
-            />
+            {names.length > 0 ? (
+              <FlatList
+                data={names}
+                renderItem={({ item }) => renderFavoriteItem(item)}
+              />
+            ) : (
+              <Text style={styles.noFav}>No favorites</Text>
+            )}
           </View>
           <View>
             <Text style={styles.favoriteCategoryName}>Dates</Text>
-            <FlatList
-              data={dates}
-              renderItem={({ item }) => renderFavoriteItem(item)}
-            />
+            {dates.length > 0 ? (
+              <FlatList
+                data={dates}
+                renderItem={({ item }) => renderFavoriteItem(item)}
+              />
+            ) : (
+              <Text style={styles.noFav}>No favorites</Text>
+            )}
           </View>
         </>
       )}
