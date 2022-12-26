@@ -6,12 +6,13 @@ import {
   LinearGradientButton,
   OutlineButton,
 } from '../../components/atoms';
-import { NotAuthenticatedStackScreenProps } from '../../navigation/types';
+import { NotAuthenticatedNavigationProp } from '../../navigation/types';
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
 
-const NotAuthenticatedScreen = ({
-  navigation,
-}: NotAuthenticatedStackScreenProps<'NotAuthenticated'>) => {
+const NotAuthenticatedScreen = () => {
+  const navigation = useNavigation<NotAuthenticatedNavigationProp>();
+
   return (
     <LinearGradientBackground>
       <View style={styles.container}>
@@ -21,24 +22,24 @@ const NotAuthenticatedScreen = ({
         </Text>
         <LinearGradientButton
           style={styles.button}
-          buttonText='Login'
-          onPress={() => navigation.navigate('Login')}
+          buttonText='Sign in'
+          onPress={() => navigation.navigate('Sign in')}
         />
         <OutlineButton
           style={styles.button}
           buttonText='Create a new account'
-          onPress={() => navigation.navigate('SignUp')}
+          onPress={() => navigation.navigate('Sign up')}
         />
         <Divider />
         <TouchableOpacity
           style={styles.touchable}
-          onPress={() => navigation.navigate('LegalInformation')}
+          onPress={() => navigation.navigate('Legal information')}
         >
           <Text style={styles.text}>Legal information</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.touchable}
-          onPress={() => navigation.navigate('PrivacyPolicy')}
+          onPress={() => navigation.navigate('Privacy policy')}
         >
           <Text style={styles.text}>Privacy Policy</Text>
         </TouchableOpacity>

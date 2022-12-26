@@ -2,7 +2,6 @@ export { default as DateScreen } from './Date/DateScreen';
 export { default as ErrorScreen } from './Error/ErrorScreen';
 export { default as FavoritesScreen } from './Favorites/FavoritesScreen';
 export { default as LegalInformationScreen } from './LegalInformation/LegalInformationScreen';
-export { default as LoginScreen } from './Login/LoginScreen';
 export { default as ModalScreen } from './ModalScreen';
 export { default as NameScreen } from './Name/NameScreen';
 export { default as NotAuthenticatedScreen } from './NotAuthenticated/NotAuthenticatedScreen';
@@ -11,4 +10,5 @@ export { default as NumberDetailsScreen } from './NumberDetails/NumberDetailsScr
 export { default as NumberListScreen } from './NumberList/NumberListScreen';
 export { default as PrivacyPolicyScreen } from './PrivacyPolicy/PrivacyPolicyScreen';
 export { default as ProfileScreen } from './Profile/ProfileScreen';
+export { default as SignInScreen } from './SignIn/SignInScreen';
 export { default as SignUpScreen } from './SignUp/SignUpScreen';

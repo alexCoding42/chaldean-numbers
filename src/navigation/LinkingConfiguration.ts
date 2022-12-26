@@ -1,13 +1,13 @@
 import { LinkingOptions } from '@react-navigation/native';
 import * as Linking from 'expo-linking';
 
-import { RootStackParamList } from './types';
+import { RootNavigatorStackParamList } from './types';
 
-const linking: LinkingOptions<RootStackParamList> = {
+const linking: LinkingOptions<RootNavigatorStackParamList> = {
   prefixes: [Linking.createURL('/')],
   config: {
     screens: {
-      Root: {
+      Home: {
         screens: {
           Date: {
             screens: {
@@ -25,7 +25,7 @@ const linking: LinkingOptions<RootStackParamList> = {
               NumberDetailsScreen: 'details',
             },
           },
-          Account: {
+          'My profile': {
             screens: {
               LoginScreen: 'login',
               SignUpScreen: 'sign-up',

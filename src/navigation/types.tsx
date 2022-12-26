@@ -11,25 +11,50 @@ import { IChaldeanNumber, IError } from '../types';
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
+    interface RootParamList extends RootNavigatorStackParamList {}
   }
 }
 
-export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
+export type RootNavigatorStackParamList = {
+  Home: NavigatorScreenParams<BottomTabNavigatorParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
   Error: IError;
+  Auth: undefined;
 };
 
-export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, Screen>;
+export type RootStackScreenProps<
+  Screen extends keyof RootNavigatorStackParamList
+> = NativeStackScreenProps<RootNavigatorStackParamList, Screen>;
 
-export type RootTabParamList = {
+export type AuthStackNavigatorParamList = {
+  'Not authenticated': undefined;
+  'Sign in': undefined;
+  'Sign up': undefined;
+  'Legal information': undefined;
+  'Privacy policy': undefined;
+};
+
+export type SignInNavigationProp = NativeStackNavigationProp<
+  AuthStackNavigatorParamList,
+  'Sign in'
+>;
+
+export type SignUpNavigationProp = NativeStackNavigationProp<
+  AuthStackNavigatorParamList,
+  'Sign up'
+>;
+
+export type NotAuthenticatedNavigationProp = NativeStackNavigationProp<
+  AuthStackNavigatorParamList,
+  'Not authenticated'
+>;
+
+export type BottomTabNavigatorParamList = {
   Date: undefined;
   Name: undefined;
   NumberList: undefined;
-  Account: undefined;
+  'My profile': undefined;
 };
 
 export type NumberStackParamList = {
@@ -37,53 +62,31 @@ export type NumberStackParamList = {
   Details: IChaldeanNumber;
 };
 
-export type AccountStackParamList = {
-  ProfileNavigator: undefined;
-  Login: undefined;
-  SignUp: undefined;
-  NotAuthenticatedNavigator: undefined;
-};
-
-export type NotAuthenticatedStackParamList = {
-  NotAuthenticated: undefined;
-  Login: undefined;
-  SignUp: undefined;
-  LegalInformation: undefined;
-  PrivacyPolicy: undefined;
+export type ProfileNavigatorParamList = {
+  MyProfile: NavigatorScreenParams<ProfileStackParamList>;
+  AuthStack: undefined;
 };
 
 export type ProfileStackParamList = {
   Profile: undefined;
   Favorites: undefined;
-  PrivacyPolicy: undefined;
-  LegalInformation: undefined;
+  'Legal information': undefined;
+  'Privacy policy': undefined;
+  Account: undefined;
 };
 
-export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
-  CompositeScreenProps<
-    BottomTabScreenProps<RootTabParamList, Screen>,
-    NativeStackScreenProps<RootStackParamList>
-  >;
+export type RootTabScreenProps<
+  Screen extends keyof RootNavigatorStackParamList
+> = CompositeScreenProps<
+  BottomTabScreenProps<RootNavigatorStackParamList, Screen>,
+  NativeStackScreenProps<RootNavigatorStackParamList>
+>;
 
 export type NumberStackScreenProps<Screen extends keyof NumberStackParamList> =
   CompositeScreenProps<
     BottomTabScreenProps<NumberStackParamList, Screen>,
-    NativeStackScreenProps<RootStackParamList>
+    NativeStackScreenProps<RootNavigatorStackParamList>
   >;
-
-export type AccountStackScreenProps<
-  Screen extends keyof AccountStackParamList
-> = CompositeScreenProps<
-  BottomTabScreenProps<AccountStackParamList, Screen>,
-  NativeStackScreenProps<AccountStackParamList>
->;
-
-export type NotAuthenticatedStackScreenProps<
-  Screen extends keyof NotAuthenticatedStackParamList
-> = CompositeScreenProps<
-  BottomTabScreenProps<NotAuthenticatedStackParamList, Screen>,
-  NativeStackScreenProps<NotAuthenticatedStackParamList>
->;
 
 export type ProfileStackScreenProps<
   Screen extends keyof ProfileStackParamList

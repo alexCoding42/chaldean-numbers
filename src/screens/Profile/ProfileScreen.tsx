@@ -12,7 +12,7 @@ import { ProfileStackScreenProps } from '../../navigation/types';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_FAVORITES } from '../../graphql/queries';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { IFavorite } from '../../types';
 import { DELETE_USER } from './queries';
 
@@ -150,7 +150,7 @@ export default function ProfileScreen({
               </View>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate('PrivacyPolicy')}
+              onPress={() => navigation.navigate('Privacy policy')}
             >
               <View style={styles.menuItem}>
                 <MaterialIcons
@@ -162,7 +162,7 @@ export default function ProfileScreen({
               </View>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate('LegalInformation')}
+              onPress={() => navigation.navigate('Legal information')}
             >
               <View style={styles.menuItem}>
                 <FontAwesome

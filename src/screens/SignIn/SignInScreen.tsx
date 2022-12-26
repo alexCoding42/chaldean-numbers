@@ -18,20 +18,20 @@ import {
 import styles from './styles';
 import { Colors } from '../../theme/colors';
 import { MaterialIcons } from '@expo/vector-icons';
-import { AccountStackScreenProps } from '../../navigation/types';
+import { SignInNavigationProp } from '../../navigation/types';
 import { useSignInEmailPassword } from '@nhost/react';
+import { useNavigation } from '@react-navigation/native';
 
-export default function LoginScreen({
-  navigation,
-}: AccountStackScreenProps<'Login'>) {
+export default function SignInScreen() {
+  const navigation = useNavigation<SignInNavigationProp>();
+
   const emailInputRef = useRef<TextInput>(null);
   const passwordInputRef = useRef<TextInput>(null);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { signInEmailPassword, isLoading, isSuccess } =
-    useSignInEmailPassword();
+  const { signInEmailPassword, isLoading } = useSignInEmailPassword();
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -52,10 +52,6 @@ export default function LoginScreen({
       Alert.alert('Error', (error as Error).message);
     }
   };
-
-  if (isSuccess) {
-    navigation.navigate('ProfileNavigator');
-  }
 
   return (
     <LinearGradientBackground>
@@ -124,7 +120,7 @@ export default function LoginScreen({
                 onPress={handleLogin}
                 isLoading={isLoading}
               />
-              <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+              <TouchableOpacity onPress={() => navigation.navigate('Sign up')}>
                 <Text style={styles.signUpText}>
                   Don't have an account yet? Sign Up now
                 </Text>

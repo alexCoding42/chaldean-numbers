@@ -1,16 +1,16 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DateScreen, NameScreen } from '../screens';
-import { RootTabParamList, RootTabScreenProps } from './types';
 import { BluredTabBar, TabBarIcon } from '../components/atoms';
 import { Colors } from '../theme/colors';
 import NumberNavigator from './NumberNavigator';
-import AccountNavigator from './AccountNavigator';
+import { BottomTabNavigatorParamList } from './types';
+import ProfileNavigator from './ProfileNavigator';
 
-const BottomTab = createBottomTabNavigator<RootTabParamList>();
+const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 
 export default function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator
+    <Tab.Navigator
       initialRouteName='Date'
       tabBar={(props) => <BluredTabBar {...props} />}
       screenOptions={{
@@ -25,17 +25,17 @@ export default function BottomTabNavigator() {
         tabBarInactiveTintColor: Colors.grey.tabIconUnselected,
       }}
     >
-      <BottomTab.Screen
+      <Tab.Screen
         name='Date'
         component={DateScreen}
-        options={({ navigation }: RootTabScreenProps<'Date'>) => ({
+        options={{
           title: 'Date',
           tabBarIcon: ({ color }) => (
             <TabBarIcon name='calendar' color={color} />
           ),
-        })}
+        }}
       />
-      <BottomTab.Screen
+      <Tab.Screen
         name='Name'
         component={NameScreen}
         options={{
@@ -43,7 +43,7 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name='pencil' color={color} />,
         }}
       />
-      <BottomTab.Screen
+      <Tab.Screen
         name='NumberList'
         component={NumberNavigator}
         options={{
@@ -53,14 +53,14 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
-      <BottomTab.Screen
-        name='Account'
-        component={AccountNavigator}
+      <Tab.Screen
+        name='My profile'
+        component={ProfileNavigator}
         options={{
-          title: 'Account',
+          title: 'Profile',
           tabBarIcon: ({ color }) => <TabBarIcon name='user' color={color} />,
         }}
       />
-    </BottomTab.Navigator>
+    </Tab.Navigator>
   );
 }

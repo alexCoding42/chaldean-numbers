@@ -1,17 +1,16 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   LegalInformationScreen,
-  LoginScreen,
   NotAuthenticatedScreen,
   PrivacyPolicyScreen,
   SignUpScreen,
 } from '../screens';
+import SignInScreen from '../screens/SignIn/SignInScreen';
 import { Colors } from '../theme/colors';
 import HeaderBackground from './components/HeaderBackground';
-import { NotAuthenticatedStackParamList } from './types';
+import { AuthStackNavigatorParamList } from './types';
 
-const NotAuthenticatedStack =
-  createNativeStackNavigator<NotAuthenticatedStackParamList>();
+const Stack = createNativeStackNavigator<AuthStackNavigatorParamList>();
 
 const defaultOptions = {
   headerTitleStyle: { color: Colors.white.default },
@@ -19,34 +18,34 @@ const defaultOptions = {
   headerBackground: () => <HeaderBackground />,
 };
 
-export default function NotAuthenticatedNavigator() {
+export default function AuthStackNavigator() {
   return (
-    <NotAuthenticatedStack.Navigator initialRouteName='NotAuthenticated'>
-      <NotAuthenticatedStack.Screen
-        name='NotAuthenticated'
+    <Stack.Navigator>
+      <Stack.Screen
+        name='Not authenticated'
         component={NotAuthenticatedScreen}
         options={{ headerShown: false }}
       />
-      <NotAuthenticatedStack.Screen
-        name='Login'
-        component={LoginScreen}
+      <Stack.Screen
+        name='Sign in'
+        component={SignInScreen}
         options={{
           headerShown: true,
-          headerTitle: 'Login',
+          headerTitle: 'Sign in',
           ...defaultOptions,
         }}
       />
-      <NotAuthenticatedStack.Screen
-        name='SignUp'
+      <Stack.Screen
+        name='Sign up'
         component={SignUpScreen}
         options={{
           headerShown: true,
-          headerTitle: 'SignUp',
+          headerTitle: 'Sign up',
           ...defaultOptions,
         }}
       />
-      <NotAuthenticatedStack.Screen
-        name='LegalInformation'
+      <Stack.Screen
+        name='Legal information'
         component={LegalInformationScreen}
         options={{
           headerShown: true,
@@ -54,8 +53,8 @@ export default function NotAuthenticatedNavigator() {
           ...defaultOptions,
         }}
       />
-      <NotAuthenticatedStack.Screen
-        name='PrivacyPolicy'
+      <Stack.Screen
+        name='Privacy policy'
         component={PrivacyPolicyScreen}
         options={{
           headerShown: true,
@@ -63,6 +62,6 @@ export default function NotAuthenticatedNavigator() {
           ...defaultOptions,
         }}
       />
-    </NotAuthenticatedStack.Navigator>
+    </Stack.Navigator>
   );
 }

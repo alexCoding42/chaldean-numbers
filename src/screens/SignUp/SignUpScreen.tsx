@@ -17,13 +17,14 @@ import {
 } from '../../components/atoms';
 import { Colors } from '../../theme/colors';
 import { MaterialIcons } from '@expo/vector-icons';
-import { AccountStackScreenProps } from '../../navigation/types';
+import { SignUpNavigationProp } from '../../navigation/types';
 import styles from './styles';
 import { useSignUpEmailPassword } from '@nhost/react';
+import { useNavigation } from '@react-navigation/native';
 
-export default function SignUpScreen({
-  navigation,
-}: AccountStackScreenProps<'SignUp'>) {
+export default function SignUpScreen() {
+  const navigation = useNavigation<SignUpNavigationProp>();
+
   const usernameInputRef = createRef<TextInput>();
   const emailInputRef = createRef<TextInput>();
   const passwordInputRef = createRef<TextInput>();
@@ -56,7 +57,7 @@ export default function SignUpScreen({
           'Success',
           'Your account has been created successfully. You will receive an email to verify your account. Please verify it before login.'
         );
-        navigation.navigate('Login');
+        navigation.navigate('Sign in');
       }
     } catch (error) {
       Alert.alert('Error', (error as Error).message);
@@ -184,7 +185,7 @@ export default function SignUpScreen({
                 onPress={handleSignUp}
                 isLoading={isLoading}
               />
-              <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <TouchableOpacity onPress={() => navigation.navigate('Sign in')}>
                 <Text style={styles.signUpText}>
                   Already have an account? Login now
                 </Text>
