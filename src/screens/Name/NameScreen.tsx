@@ -14,6 +14,7 @@ import styles from './styles';
 import {
   LinearGradientBackground,
   LinearGradientButton,
+  Toast,
 } from '../../components/atoms';
 import { CHALDEAN_NUMBERS } from '../../constants/ChaldeanNumbers';
 import { Colors } from '../../theme/colors';
@@ -23,7 +24,7 @@ import {
 } from '../../utils/computation';
 import { useAuthenticationStatus, useUserData } from '@nhost/react';
 import { useLazyQuery, useMutation } from '@apollo/client';
-import { IFavorite } from '../../types';
+import { IFavorite, IToast } from '../../types';
 import {
   ADD_FAVORITE,
   DELETE_FAVORITE,
@@ -45,6 +46,7 @@ export default function NameScreen() {
     false
   );
   const [nameFavoriteId, setNameFavoriteId] = useState('');
+  const [toasts, setToasts] = useState<IToast[]>([]);
 
   const [getFavorites, { loading: isfetchingFavorites }] = useLazyQuery(
     GET_FAVORITES,
@@ -122,8 +124,24 @@ export default function NameScreen() {
   const handleFavorite = async () => {
     if (isNameFavorite) {
       deleteFavorite();
+      setToasts([
+        ...toasts,
+        {
+          type: 'danger',
+          message: 'Favorite removed',
+          color: Colors.red.default,
+        },
+      ]);
     } else {
       addFavorite();
+      setToasts([
+        ...toasts,
+        {
+          type: 'success',
+          message: 'Favorite added',
+          color: Colors.green.success,
+        },
+      ]);
     }
   };
 
@@ -193,6 +211,18 @@ export default function NameScreen() {
     <LinearGradientBackground>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <SafeAreaView style={styles.safeAreaViewContainer}>
+          {toasts.map((toast, index) => (
+            <Toast
+              key={index}
+              message={toast.message}
+              color={toast.color}
+              onHide={() => {
+                setToasts((toasts) =>
+                  toasts.filter((currentToast) => currentToast !== toast)
+                );
+              }}
+            />
+          ))}
           <View style={styles.container}>
             <Text style={styles.title}>Find the chaldean number of a name</Text>
             <Text style={styles.textInputTitle}>Full Name</Text>

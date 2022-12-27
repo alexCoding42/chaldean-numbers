@@ -21,3 +21,9 @@ export interface IFavorite {
   value: string;
   userId: string;
 }
+
+export interface IToast {
+  type: 'success' | 'danger';
+  color: string;
+  message: string;
+}

@@ -11,6 +11,7 @@ export const Colors = {
   green: {
     light: '#27869a',
     dark: '#1b6270',
+    success: '#4BB543',
   },
   grey: {
     light: '#4A556D',

@@ -7,3 +7,4 @@ export { default as LinearGradientButton } from './LinearGradientButton';
 export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as OutlineButton } from './OutlineButton';
 export { default as TabBarIcon } from './TabBarIcon';
+export { default as Toast } from './Toast';

@@ -14,6 +14,7 @@ import { format } from 'date-fns';
 import {
   LinearGradientBackground,
   LinearGradientButton,
+  Toast,
 } from '../../components/atoms';
 import { Colors } from '../../theme/colors';
 import styles from './styles';
@@ -26,7 +27,7 @@ import {
   DELETE_FAVORITE,
   GET_FAVORITES,
 } from '../../graphql/queries';
-import { IFavorite } from '../../types';
+import { IFavorite, IToast } from '../../types';
 
 export default function DateScreen() {
   const { isAuthenticated } = useAuthenticationStatus();
@@ -44,6 +45,7 @@ export default function DateScreen() {
     false
   );
   const [dateFavoriteId, setDateFavoriteId] = useState('');
+  const [toasts, setToasts] = useState<IToast[]>([]);
 
   const [getFavorites, { loading: isfetchingFavorites }] = useLazyQuery(
     GET_FAVORITES,
@@ -107,8 +109,24 @@ export default function DateScreen() {
   const handleFavorite = async () => {
     if (isDateFavorite) {
       deleteFavorite();
+      setToasts([
+        ...toasts,
+        {
+          type: 'danger',
+          message: 'Favorite removed',
+          color: Colors.red.default,
+        },
+      ]);
     } else {
       addFavorite();
+      setToasts([
+        ...toasts,
+        {
+          type: 'success',
+          message: 'Favorite added',
+          color: Colors.green.success,
+        },
+      ]);
     }
   };
 
@@ -174,10 +192,27 @@ export default function DateScreen() {
     );
   }, [isDateFavorite]);
 
+  const getRandomMessage = () => {
+    const number = Math.trunc(Math.random() * 1000);
+    return 'Random message ' + number;
+  };
+
   return (
     <LinearGradientBackground>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <SafeAreaView style={styles.safeAreaViewContainer}>
+          {toasts.map((toast, index) => (
+            <Toast
+              key={index}
+              message={toast.message}
+              color={toast.color}
+              onHide={() => {
+                setToasts((toasts) =>
+                  toasts.filter((currentToast) => currentToast !== toast)
+                );
+              }}
+            />
+          ))}
           <View style={styles.container}>
             <Text style={styles.title}>Find the chaldean number of a date</Text>
             <Text style={styles.textInputTitle}>Full Date</Text>
