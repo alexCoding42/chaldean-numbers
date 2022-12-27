@@ -8,29 +8,13 @@ const styles = StyleSheet.create({
   },
   userInfoSection: {
     paddingHorizontal: Spacings.SM,
-    marginBottom: Spacings.M,
+    paddingBottom: Spacings.M,
   },
-  topContainer: {
-    flexDirection: 'row',
-    marginTop: Spacings.S,
-  },
-  avatar: {
-    width: 80,
-    height: 80,
-    borderRadius: 80,
-  },
-  displayNameContainer: {
-    flex: 1,
-    marginLeft: Spacings.S,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-  },
-  title: {
+  username: {
     fontSize: 24,
     fontWeight: 'bold',
     color: Colors.white.default,
-    marginTop: Spacings.S,
-    marginBottom: Spacings.XXS,
+    marginBottom: Spacings.XS,
   },
   caption: {
     fontSize: 14,
