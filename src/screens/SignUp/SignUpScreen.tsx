@@ -14,7 +14,6 @@ import React, { createRef, useState } from 'react';
 import {
   LinearGradientBackground,
   LinearGradientButton,
-  Toast,
 } from '../../components/atoms';
 import { Colors } from '../../theme/colors';
 import { MaterialIcons } from '@expo/vector-icons';

@@ -8,12 +8,6 @@ const styles = StyleSheet.create({
     paddingTop: Spacings.M,
     paddingHorizontal: Spacings.SM,
   },
-  title: {
-    color: Colors.white.default,
-    fontSize: 35,
-    fontWeight: 'bold',
-    marginBottom: 30,
-  },
   textInputTitle: {
     color: Colors.white.default,
     fontWeight: 'bold',
@@ -45,18 +39,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     paddingHorizontal: 10,
-  },
-  signUpText: {
-    marginTop: Spacings.SM,
-    color: Colors.white.default,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  forgotPasswordText: {
-    marginTop: Spacings.SM,
-    color: Colors.white.default,
-    textAlign: 'center',
-    textDecorationLine: 'underline',
   },
 });
 

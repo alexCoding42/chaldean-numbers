@@ -1,5 +1,6 @@
 export { default as DateScreen } from './Date/DateScreen';
 export { default as ErrorScreen } from './Error/ErrorScreen';
+export { default as ForgotPasswordScreen } from './ForgotPassword/ForgotPasswordScreen';
 export { default as FavoritesScreen } from './Favorites/FavoritesScreen';
 export { default as LegalInformationScreen } from './LegalInformation/LegalInformationScreen';
 export { default as ModalScreen } from './ModalScreen';

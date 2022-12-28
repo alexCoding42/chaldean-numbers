@@ -33,6 +33,7 @@ export type AuthStackNavigatorParamList = {
   'Sign up': undefined;
   'Legal information': undefined;
   'Privacy policy': undefined;
+  'Forgot password': undefined;
 };
 
 export type SignInNavigationProp = NativeStackNavigationProp<

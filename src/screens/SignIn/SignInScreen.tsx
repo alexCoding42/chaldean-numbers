@@ -121,6 +121,13 @@ export default function SignInScreen() {
                   Don't have an account yet? Sign Up now
                 </Text>
               </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Forgot password')}
+              >
+                <Text style={styles.forgotPasswordText}>
+                  I have forgotten my password
+                </Text>
+              </TouchableOpacity>
             </View>
           </ScrollView>
         </TouchableWithoutFeedback>

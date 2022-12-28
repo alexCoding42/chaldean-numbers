@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
+  ForgotPasswordScreen,
   LegalInformationScreen,
   NotAuthenticatedScreen,
   PrivacyPolicyScreen,
@@ -41,6 +42,15 @@ export default function AuthStackNavigator() {
         options={{
           headerShown: true,
           headerTitle: 'Sign up',
+          ...defaultOptions,
+        }}
+      />
+      <Stack.Screen
+        name='Forgot password'
+        component={ForgotPasswordScreen}
+        options={{
+          headerShown: true,
+          headerTitle: 'Forgot Password',
           ...defaultOptions,
         }}
       />
