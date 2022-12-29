@@ -19,7 +19,7 @@ import styles from './styles';
 import { Colors } from '../../theme/colors';
 import { MaterialIcons } from '@expo/vector-icons';
 import { SignInNavigationProp } from '../../navigation/types';
-import { useSignInEmailPassword } from '@nhost/react';
+import { useNhostClient, useSignInEmailPassword } from '@nhost/react';
 import { useNavigation } from '@react-navigation/native';
 
 export default function SignInScreen() {
@@ -32,6 +32,7 @@ export default function SignInScreen() {
   const [password, setPassword] = useState('');
 
   const { signInEmailPassword, isLoading } = useSignInEmailPassword();
+  const { auth } = useNhostClient();
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -41,11 +42,44 @@ export default function SignInScreen() {
 
     try {
       const res = await signInEmailPassword(email.trim(), password.trim());
-      if (res.isError) {
+      if (res.needsEmailVerification) {
+        Alert.alert(
+          'Error',
+          'Your account is not verified yet. Please verify your account first before login, by clicking on the confirmation link that you have received by email. If you did not receive any email, or if the link has expired you can ask for a new confirmation link.',
+          [
+            {
+              text: 'Ask for a new confirmation link',
+              onPress: () => sendNewConfirmationLink(),
+            },
+            { text: 'Close', onPress: () => {} },
+          ]
+        );
+        return;
+      } else if (res.isError) {
         throw new Error(res?.error?.message);
       }
     } catch (error) {
       Alert.alert('Error', (error as Error).message);
+    }
+  };
+
+  const sendNewConfirmationLink = async () => {
+    try {
+      const res = await auth.sendVerificationEmail({
+        email: email,
+      });
+      if (!res.error) {
+        Alert.alert(
+          'Success',
+          'A new confirmation link has been sent, please check your email.'
+        );
+        return;
+      } else {
+        throw new Error(res?.error?.message);
+      }
+    } catch (error) {
+      Alert.alert('Error', (error as Error).message);
+      return;
     }
   };
 

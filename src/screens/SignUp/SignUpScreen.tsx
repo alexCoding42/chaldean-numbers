@@ -52,6 +52,12 @@ export default function SignUpScreen() {
       });
       if (res.isError) {
         throw new Error(res?.error?.message);
+      } else {
+        Alert.alert(
+          'Success',
+          'Your account has been created successfully. You will receive an email to verify your account. Please verify it before login.'
+        );
+        navigation.navigate('Sign in');
       }
     } catch (error) {
       Alert.alert('Error', (error as Error).message);

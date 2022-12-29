@@ -1763,69 +1763,61 @@
     htmlparser2 "^7.1.2"
     ramda "^0.27.2"
 
-"@nhost/apollo@0.5.32":
-  version "0.5.32"
-  resolved "https://registry.yarnpkg.com/@nhost/apollo/-/apollo-0.5.32.tgz#a73b32c2c8649216901c8b48f42987b7f5c9d648"
-  integrity sha512-1m+IR+4B/2ZXLOI//5QsKQQDPeaDjihucu3aM/9DE7J9Q6uCMPgjdqN62XKeO4vB1afhX4JM+ySrPltB4O9lpA==
+"@nhost/apollo@0.5.36":
+  version "0.5.36"
+  resolved "https://registry.yarnpkg.com/@nhost/apollo/-/apollo-0.5.36.tgz#798b8d988e1350fd9a3b6ec112ffeb4a5b97b690"
+  integrity sha512-KIXj6DVsqlqBH1XGCiU+lrA989yliZB9SQS3JFcS5xGY2P00FxntabXxKzYXv7wpOM2d9+0oaVoDYk3YXJSiOQ==
   dependencies:
-    "@nhost/nhost-js" "1.5.2"
+    "@nhost/nhost-js" "1.7.0"
     graphql "15.7.2"
     graphql-ws "^5.10.1"
 
-"@nhost/core@0.9.1":
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/@nhost/core/-/core-0.9.1.tgz#f634d4c1726d330982cdb70a758b87f0bb21faad"
-  integrity sha512-v+Q2zQRGYQCdvIphZw5ZKwZlB2B5qFqiT2zSEeAQDgischckiOZnD76qGxl/00T43kU6FinS27P+qP9rCCBI3A==
+"@nhost/hasura-auth-js@1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@nhost/hasura-auth-js/-/hasura-auth-js-1.7.0.tgz#ca6c0247979a82ab1d97859acc0dc3f20ad6c9e7"
+  integrity sha512-1xsvpSF8/Ec2UsswcFOvwqiL1zb2r8zzv40hQf1ONBvTlgc7kDlSOC1QM79DYMNVK7uNVQwzJe4iJzbZ+mujqA==
   dependencies:
     "@simplewebauthn/browser" "^6.0.0"
-    axios "^0.27.2"
+    axios "^1.2.0"
     js-cookie "^3.0.1"
-    xstate "^4.33.5"
-
-"@nhost/hasura-auth-js@1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@nhost/hasura-auth-js/-/hasura-auth-js-1.6.1.tgz#31f7a4ea9269da1f1da2fc604599a3ae9dab292f"
-  integrity sha512-gIy/3Q1G+F2slb+7/4ugL4HA2AQFAD7r/V9TnIxrgp8WA5hlnqrJObEf/vf0NV5WERIUFo6bLrHuk0D8F18pTg==
-  dependencies:
-    axios "^0.27.2"
     jwt-decode "^3.1.2"
     xstate "^4.33.5"
 
-"@nhost/hasura-storage-js@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@nhost/hasura-storage-js/-/hasura-storage-js-0.7.1.tgz#d60f076f007461b9bb2eda42ffc67275d3012443"
-  integrity sha512-vf/B43BT9ntibesh6mbaIpzxUG4H02E464CWPWsU4aZWWbCShZVYc5atVtlg8YlRkn6+QngwgXxUCjHFDquP/A==
+"@nhost/hasura-storage-js@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@nhost/hasura-storage-js/-/hasura-storage-js-0.8.0.tgz#eec0c651f9f4470aadd2b31a8a4f4c5031344700"
+  integrity sha512-OrDTmThwK7u0Aasn9+V7bNiaFDO/Al6X7mQbC9LlVi9W+p4NqSYdWrsSRa8NAWlXHJ+3C5pmENMPJDtkcd3FXg==
   dependencies:
-    axios "^0.27.2"
+    axios "^1.2.0"
     form-data "^4.0.0"
     xstate "^4.33.5"
 
-"@nhost/nhost-js@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@nhost/nhost-js/-/nhost-js-1.5.2.tgz#03325f71ffb41ee6bc13c520f7452a3028ab4517"
-  integrity sha512-uZ+85KmqlrzS/8TLLnVgp2Ppg1Ncv1ONV71PxokiiAU7AMnIlhnE2DtRpjpwfqP137hP4ZOeqUsjCW5FgQSdJg==
+"@nhost/nhost-js@1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@nhost/nhost-js/-/nhost-js-1.7.0.tgz#711612568712b1f26648697fd158f2109e0ca98c"
+  integrity sha512-Dvtzh/sBheTausSIYBaXbddA6W5hYKGdj2wtMEz90xmyGvGBVSsD1zjq6uiC/XOQDddZanBkbBwkO7KpIdXHZQ==
   dependencies:
-    "@nhost/hasura-auth-js" "1.6.1"
-    "@nhost/hasura-storage-js" "0.7.1"
-    axios "^0.27.2"
+    "@nhost/hasura-auth-js" "1.7.0"
+    "@nhost/hasura-storage-js" "0.8.0"
+    axios "^1.2.0"
     jwt-decode "^3.1.2"
     query-string "^7.0.1"
 
-"@nhost/react-apollo@^4.8.1":
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/@nhost/react-apollo/-/react-apollo-4.8.1.tgz#cfe5b441093463ccb81e945f2d3ea13ced12b356"
-  integrity sha512-rcoJT0F1SiXyTGw9AHn5OkXkFL0Hkq/EPT1ybrFd0Vh9zq/xtUOPkn2QSuLMk1bz3UbpJqGhkmzJJjQWOBVfMg==
+"@nhost/react-apollo@^4.11.0":
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/@nhost/react-apollo/-/react-apollo-4.11.0.tgz#313617d63c7beab48b63be73e3fd8dbc21fe02a7"
+  integrity sha512-pPNEBX3//eK7MVQaaTkSDOkV3W0h0mbxgsaHoN3sj8++LeopQ9KsLP4GWLgeVkv55cMMR8UH9vD0wUm47xsxnA==
   dependencies:
-    "@nhost/apollo" "0.5.32"
+    "@nhost/apollo" "0.5.36"
 
-"@nhost/react@^0.14.1":
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/@nhost/react/-/react-0.14.1.tgz#632a10c3b72b4ef991845bb981bcf9dfa7866b83"
-  integrity sha512-240WCGF/3eUsvaGA9hc9t/icmw9fxzaLqAZH2By5vOSseet182mMvyYTJfTmkvKdiU8rRgF7ys9UC5Pezg8DhA==
+"@nhost/react@^0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@nhost/react/-/react-0.17.0.tgz#6dcefbaa94bddb2a8a46c46fd636487d975bcf51"
+  integrity sha512-iJPWCHBHtz03DmPudug4Qe8pacnh/Lu8AH15cgGXEOWn8z4hGOE6C120P1xj+q00cYcoYo0RQrzaPNSmjkcYUA==
   dependencies:
-    "@nhost/core" "0.9.1"
-    "@nhost/hasura-storage-js" "0.7.1"
-    "@nhost/nhost-js" "1.5.2"
+    "@nhost/hasura-auth-js" "1.7.0"
+    "@nhost/hasura-storage-js" "0.8.0"
+    "@nhost/nhost-js" "1.7.0"
     "@xstate/react" "^3.0.1"
     immer "^9.0.15"
     jwt-decode "^3.1.2"
@@ -2641,13 +2633,14 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-axios@^0.27.2:
-  version "0.27.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
-  integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
+axios@^1.2.0:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.2.2.tgz#72681724c6e6a43a9fea860fc558127dbe32f9f1"
+  integrity sha512-bz/J4gS2S3I7mpN/YZfGFTqhXTYzRho8Ay38w2otuuDR322KzFIWm/4W2K6gIwvWaws5n+mnb7D1lN9uD+QH6Q==
   dependencies:
-    follow-redirects "^1.14.9"
+    follow-redirects "^1.15.0"
     form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
 
 babel-core@^7.0.0-bridge.0:
   version "7.0.0-bridge.0"
@@ -4317,7 +4310,7 @@ flow-parser@^0.121.0:
   resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.121.0.tgz#9f9898eaec91a9f7c323e9e992d81ab5c58e618f"
   integrity sha512-1gIBiWJNR0tKUNv8gZuk7l9rVX06OuLzY9AoGio7y/JT4V1IZErEMEq2TJS+PFcw/y0RshZ1J/27VfK1UQzYVg==
 
-follow-redirects@^1.14.9:
+follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -7118,6 +7111,11 @@ prop-types@^15.5.7, prop-types@^15.7.2, prop-types@^15.8.1:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.13.1"
+
+proxy-from-env@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
+  integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
 psl@^1.1.33:
   version "1.9.0"
