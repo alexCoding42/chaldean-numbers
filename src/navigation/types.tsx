@@ -51,6 +51,11 @@ export type NotAuthenticatedNavigationProp = NativeStackNavigationProp<
   'Not authenticated'
 >;
 
+export type ForgotPasswordNavigationProp = NativeStackNavigationProp<
+  AuthStackNavigatorParamList,
+  'Forgot password'
+>;
+
 export type BottomTabNavigatorParamList = {
   Date: undefined;
   Name: undefined;

@@ -36,7 +36,7 @@ export default function SignInScreen() {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert('Error', 'You must fill all the fields');
+      Alert.alert('Error', 'All fields must be filled');
       return;
     }
 
@@ -45,7 +45,7 @@ export default function SignInScreen() {
       if (res.needsEmailVerification) {
         Alert.alert(
           'Error',
-          'Your account is not verified yet. Please verify your account first before login, by clicking on the confirmation link that you have received by email. If you did not receive any email, or if the link has expired you can ask for a new confirmation link.',
+          'Your account is not verified. Please check your mailbox and follow the verification link to verify your email. If you did not receive any email, or if the link has expired you can ask for a new confirmation link.',
           [
             {
               text: 'Ask for a new confirmation link',

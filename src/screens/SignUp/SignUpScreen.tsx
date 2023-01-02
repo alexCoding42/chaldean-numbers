@@ -40,7 +40,7 @@ export default function SignUpScreen() {
   const handleSignUp = async () => {
     try {
       if (!username || !email || !password || !confirmPassword) {
-        Alert.alert('Error', 'You must fill all the fields');
+        Alert.alert('Error', 'All fields must be filled');
         return;
       } else if (password !== confirmPassword) {
         Alert.alert('Error', 'Passwords do not match');
@@ -55,7 +55,7 @@ export default function SignUpScreen() {
       } else {
         Alert.alert(
           'Success',
-          'Your account has been created successfully. You will receive an email to verify your account. Please verify it before login.'
+          'Your account has been created successfully but needs to be verified. Please check your mailbox and follow the verification link to verify your email.'
         );
         navigation.navigate('Sign in');
       }

@@ -1,4 +1,6 @@
 import { MaterialIcons } from '@expo/vector-icons';
+import { useResetPassword } from '@nhost/react';
+import { useNavigation } from '@react-navigation/native';
 import { useRef, useState } from 'react';
 import {
   Keyboard,
@@ -16,18 +18,38 @@ import {
   LinearGradientBackground,
   LinearGradientButton,
 } from '../../components/atoms';
+import { ForgotPasswordNavigationProp } from '../../navigation/types';
 import { Colors } from '../../theme/colors';
 import styles from './styles';
 
 export default function ForgotPasswordScreen() {
+  const navigation = useNavigation<ForgotPasswordNavigationProp>();
+
+  const { resetPassword, isLoading } = useResetPassword();
   const emailInputRef = useRef<TextInput>(null);
   const [email, setEmail] = useState('');
 
-  function sendResetPassword() {
-    Alert.alert(
-      'Success',
-      'You should receive a reset password in your email.'
-    );
+  async function sendResetPassword() {
+    if (email === '') {
+      Alert.alert('Error', 'Please provide an email.');
+      return;
+    }
+
+    try {
+      const res = await resetPassword(email);
+
+      if (res.isError) {
+        throw new Error(res?.error?.message);
+      } else {
+        Alert.alert(
+          'Success',
+          'Please check your mailbox and follow the reset link to change your password.'
+        );
+        navigation.navigate('Sign in');
+      }
+    } catch (error) {
+      Alert.alert('Error', (error as Error).message);
+    }
   }
 
   return (
@@ -69,7 +91,7 @@ export default function ForgotPasswordScreen() {
                 style={{ marginTop: 20 }}
                 buttonText='Send reset password'
                 onPress={sendResetPassword}
-                isLoading={false}
+                isLoading={isLoading}
               />
             </View>
           </ScrollView>
