@@ -99,7 +99,7 @@ export default function SignInScreen() {
                   keyboardType='email-address'
                   returnKeyType='next'
                   placeholder='your.email@gmail.com'
-                  placeholderTextColor={Colors.grey.tabIconUnselected}
+                  placeholderTextColor={Colors.purple.tabIconUnselected}
                   autoCapitalize='none'
                   style={styles.input}
                   value={email}
@@ -125,7 +125,7 @@ export default function SignInScreen() {
                   secureTextEntry
                   returnKeyType='done'
                   placeholder='your password'
-                  placeholderTextColor={Colors.grey.tabIconUnselected}
+                  placeholderTextColor={Colors.purple.tabIconUnselected}
                   autoCapitalize='none'
                   style={styles.input}
                   value={password}

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     color: Colors.white.default,
   },
   favoriteCategoryName: {
-    backgroundColor: Colors.green.light,
+    backgroundColor: Colors.yellow.light,
     padding: Spacings.XS,
     color: Colors.white.default,
     fontWeight: '600',

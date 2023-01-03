@@ -22,7 +22,7 @@ export default function BottomTabNavigator() {
           elevation: 0.5,
         },
         tabBarActiveTintColor: Colors.white.tabIconSelected,
-        tabBarInactiveTintColor: Colors.grey.tabIconUnselected,
+        tabBarInactiveTintColor: Colors.purple.tabIconUnselected,
       }}
     >
       <Tab.Screen

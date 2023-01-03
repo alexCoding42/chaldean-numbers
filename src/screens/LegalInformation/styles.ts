@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
     color: Colors.white.default,
     paddingVertical: Spacings.XS,
   },
+  email: {
+    color: Colors.yellow.light,
+  },
 });
 
 export default styles;

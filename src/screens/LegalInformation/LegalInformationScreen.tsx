@@ -2,6 +2,7 @@ import { View, Text, ScrollView } from 'react-native';
 import React from 'react';
 import { LinearGradientBackground } from '../../components/atoms';
 import styles from './styles';
+import { Colors } from '../../theme/colors';
 
 export default function LegalInformationScreen() {
   return (
@@ -21,7 +22,8 @@ export default function LegalInformationScreen() {
           </Text>
           <Text style={styles.text}>ID number: 2021-001018849</Text>
           <Text style={styles.text}>
-            Email address: next.app.conception@gmail.com
+            Email address:{' '}
+            <Text style={styles.email}>next.app.conception@gmail.com</Text>
           </Text>
           <Text style={styles.text}>
             Owner: The Director of the company is Mr Alexandre Cissé

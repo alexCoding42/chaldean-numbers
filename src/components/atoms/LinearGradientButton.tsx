@@ -21,7 +21,7 @@ export default function LinearGradientButton({
   onPress,
   buttonText,
   isLoading = false,
-  colors = Gradients.green.default,
+  colors = Gradients.yellow.default,
   style,
 }: LinearGradientButtonProps) {
   return (
@@ -33,8 +33,8 @@ export default function LinearGradientButton({
     >
       <LinearGradient
         colors={colors}
-        start={{ x: 0, y: 0.75 }}
-        end={{ x: 1, y: 0.25 }}
+        start={{ x: 0.7, y: 0 }}
+        end={{ x: 0.7, y: 1 }}
         style={styles.linearGradientBtn}
       >
         {isLoading ? (

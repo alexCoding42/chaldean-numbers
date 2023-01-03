@@ -8,18 +8,15 @@ export const Colors = {
     default: '#000000',
     withOpacity: 'rgba(0, 0, 0, 0.4)',
   },
-  green: {
-    light: '#27869a',
-    dark: '#1b6270',
+  yellow: {
+    light: '#f5f072',
+    dark: '#fe9249',
     success: '#4BB543',
   },
-  grey: {
-    light: '#4A556D',
-    dark: '#272C42',
+  purple: {
+    light: '#341848',
+    dark: '#151146',
     tabIconUnselected: '#737373',
-  },
-  yellow: {
-    default: '#FFFDDE',
   },
   red: {
     default: '#d63031',
@@ -27,10 +24,10 @@ export const Colors = {
 };
 
 export const Gradients = {
-  grey: {
-    default: [Colors.grey.light, Colors.grey.dark],
+  purple: {
+    default: [Colors.purple.dark, Colors.purple.light],
   },
-  green: {
-    default: [Colors.green.light, Colors.green.dark],
+  yellow: {
+    default: [Colors.yellow.light, Colors.yellow.dark],
   },
 };

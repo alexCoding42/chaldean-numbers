@@ -124,7 +124,7 @@ export default function DateScreen() {
         {
           type: 'success',
           message: 'Favorite added',
-          color: Colors.green.success,
+          color: Colors.yellow.success,
         },
       ]);
     }
@@ -224,7 +224,7 @@ export default function DateScreen() {
                 ref={inputDateRef}
                 keyboardType='number-pad'
                 placeholder='Ex: 2022-12-31'
-                placeholderTextColor={Colors.grey.tabIconUnselected}
+                placeholderTextColor={Colors.purple.tabIconUnselected}
                 style={styles.input}
                 editable={false}
                 onPressIn={() => setIsDatePickerOpen(true)}

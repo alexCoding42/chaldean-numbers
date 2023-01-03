@@ -30,7 +30,7 @@ export default function Navigation() {
           component={ErrorScreen}
           options={{
             headerStyle: {
-              backgroundColor: Colors.grey.dark,
+              backgroundColor: Colors.purple.dark,
             },
             headerTitleStyle: { color: Colors.white.default },
             headerBackVisible: false,

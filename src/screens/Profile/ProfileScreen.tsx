@@ -99,7 +99,7 @@ export default function ProfileScreen({
             <View style={styles.row}>
               <MaterialIcons
                 name='email'
-                color={Colors.green.light}
+                color={Colors.yellow.light}
                 size={20}
               />
               <Text style={styles.sectionText}>{user?.email}</Text>
@@ -130,7 +130,7 @@ export default function ProfileScreen({
               <View style={styles.menuItem}>
                 <FontAwesome
                   name='heart-o'
-                  color={Colors.green.light}
+                  color={Colors.yellow.light}
                   size={25}
                 />
                 <Text style={styles.menuItemText}>Your Favorites</Text>
@@ -142,7 +142,7 @@ export default function ProfileScreen({
               <View style={styles.menuItem}>
                 <MaterialIcons
                   name='policy'
-                  color={Colors.green.light}
+                  color={Colors.yellow.light}
                   size={25}
                 />
                 <Text style={styles.menuItemText}>Privacy Policy</Text>
@@ -154,7 +154,7 @@ export default function ProfileScreen({
               <View style={styles.menuItem}>
                 <FontAwesome
                   name='legal'
-                  color={Colors.green.light}
+                  color={Colors.yellow.light}
                   size={25}
                 />
                 <Text style={styles.menuItemText}>Legal Information</Text>
@@ -164,7 +164,7 @@ export default function ProfileScreen({
               <View style={styles.menuItem}>
                 <MaterialIcons
                   name='logout'
-                  color={Colors.green.light}
+                  color={Colors.yellow.light}
                   size={25}
                 />
                 <Text style={styles.menuItemText}>Logout</Text>

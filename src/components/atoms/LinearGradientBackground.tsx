@@ -9,7 +9,7 @@ type LinearGradientBackgroundProps = {
 };
 
 export default function LinearGradientBackground({
-  colors = [Colors.grey.light, Colors.grey.dark],
+  colors = [Colors.purple.light, Colors.purple.dark],
   children,
 }: LinearGradientBackgroundProps) {
   return (

@@ -10,7 +10,7 @@ type ToasterProps = {
 
 export default function Toast({
   message,
-  color = Colors.grey.dark,
+  color = Colors.purple.dark,
   onHide,
 }: ToasterProps) {
   const opacity = useRef(new Animated.Value(0)).current;

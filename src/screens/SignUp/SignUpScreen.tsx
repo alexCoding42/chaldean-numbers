@@ -80,7 +80,7 @@ export default function SignUpScreen() {
                   returnKeyType='next'
                   keyboardType='default'
                   placeholder='Username'
-                  placeholderTextColor={Colors.grey.tabIconUnselected}
+                  placeholderTextColor={Colors.purple.tabIconUnselected}
                   autoCapitalize='none'
                   style={styles.input}
                   value={username}
@@ -106,7 +106,7 @@ export default function SignUpScreen() {
                   returnKeyType='next'
                   keyboardType='email-address'
                   placeholder='your.email@gmail.com'
-                  placeholderTextColor={Colors.grey.tabIconUnselected}
+                  placeholderTextColor={Colors.purple.tabIconUnselected}
                   autoCapitalize='none'
                   style={styles.input}
                   value={email}
@@ -132,7 +132,7 @@ export default function SignUpScreen() {
                   secureTextEntry
                   returnKeyType='next'
                   placeholder='your password'
-                  placeholderTextColor={Colors.grey.tabIconUnselected}
+                  placeholderTextColor={Colors.purple.tabIconUnselected}
                   autoCapitalize='none'
                   style={styles.input}
                   value={password}
@@ -160,7 +160,7 @@ export default function SignUpScreen() {
                   secureTextEntry
                   returnKeyType='done'
                   placeholder='your confirmed password'
-                  placeholderTextColor={Colors.grey.tabIconUnselected}
+                  placeholderTextColor={Colors.purple.tabIconUnselected}
                   autoCapitalize='none'
                   style={styles.input}
                   value={confirmPassword}

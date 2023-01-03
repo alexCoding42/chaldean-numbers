@@ -139,7 +139,7 @@ export default function NameScreen() {
         {
           type: 'success',
           message: 'Favorite added',
-          color: Colors.green.success,
+          color: Colors.yellow.success,
         },
       ]);
     }
@@ -231,7 +231,7 @@ export default function NameScreen() {
                 testID='nameTextInput'
                 ref={inputDateRef}
                 placeholder='Ex: Google LLC'
-                placeholderTextColor={Colors.grey.tabIconUnselected}
+                placeholderTextColor={Colors.purple.tabIconUnselected}
                 autoCapitalize='none'
                 style={styles.input}
                 value={inputName}

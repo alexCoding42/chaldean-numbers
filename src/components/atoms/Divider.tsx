@@ -9,7 +9,7 @@ export default function Divider() {
       style={{
         width: '100%',
         margin: Spacings.S,
-        borderColor: Colors.grey.light,
+        borderColor: Colors.white.default,
         borderWidth: StyleSheet.hairlineWidth,
       }}
     ></View>
