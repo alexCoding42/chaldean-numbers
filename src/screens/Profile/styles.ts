@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   sectionText: {
     color: Colors.white.default,
-    marginLeft: Spacings.SM,
+    marginLeft: Spacings.XS,
   },
   infoBoxWrapper: {
     borderBottomColor: Colors.white.absolute,

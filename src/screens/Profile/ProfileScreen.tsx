@@ -3,11 +3,12 @@ import React from 'react';
 import styles from './styles';
 import {
   LinearGradientBackground,
+  LinearGradientIcon,
   LoadingSpinner,
 } from '../../components/atoms';
 import { useSignOut, useUserData } from '@nhost/react';
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
-import { Colors } from '../../theme/colors';
+import { Colors, Gradients } from '../../theme/colors';
 import { ProfileStackScreenProps } from '../../navigation/types';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useMutation, useQuery } from '@apollo/client';
@@ -15,6 +16,8 @@ import { GET_FAVORITES } from '../../graphql/queries';
 import { useFocusEffect } from '@react-navigation/native';
 import { IFavorite } from '../../types';
 import { DELETE_USER } from './queries';
+import { LinearGradient } from 'expo-linear-gradient';
+import MaskedView from '@react-native-masked-view/masked-view';
 
 export default function ProfileScreen({
   navigation,
@@ -97,10 +100,8 @@ export default function ProfileScreen({
           <View style={styles.userInfoSection}>
             <Text style={styles.username}>{user?.displayName}</Text>
             <View style={styles.row}>
-              <MaterialIcons
-                name='email'
-                color={Colors.yellow.light}
-                size={20}
+              <LinearGradientIcon
+                icon={<MaterialIcons name='email' size={20} />}
               />
               <Text style={styles.sectionText}>{user?.email}</Text>
             </View>
@@ -128,10 +129,9 @@ export default function ProfileScreen({
           <View style={styles.menuWrapper}>
             <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
               <View style={styles.menuItem}>
-                <FontAwesome
-                  name='heart-o'
-                  color={Colors.yellow.light}
-                  size={25}
+                <LinearGradientIcon
+                  width={25}
+                  icon={<FontAwesome name='heart-o' size={24} />}
                 />
                 <Text style={styles.menuItemText}>Your Favorites</Text>
               </View>
@@ -140,10 +140,9 @@ export default function ProfileScreen({
               onPress={() => navigation.navigate('Privacy policy')}
             >
               <View style={styles.menuItem}>
-                <MaterialIcons
-                  name='policy'
-                  color={Colors.yellow.light}
-                  size={25}
+                <LinearGradientIcon
+                  width={25}
+                  icon={<MaterialIcons name='policy' size={24} />}
                 />
                 <Text style={styles.menuItemText}>Privacy Policy</Text>
               </View>
@@ -152,20 +151,18 @@ export default function ProfileScreen({
               onPress={() => navigation.navigate('Legal information')}
             >
               <View style={styles.menuItem}>
-                <FontAwesome
-                  name='legal'
-                  color={Colors.yellow.light}
-                  size={25}
+                <LinearGradientIcon
+                  width={25}
+                  icon={<FontAwesome name='legal' size={24} />}
                 />
                 <Text style={styles.menuItemText}>Legal Information</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={signOut}>
               <View style={styles.menuItem}>
-                <MaterialIcons
-                  name='logout'
-                  color={Colors.yellow.light}
-                  size={25}
+                <LinearGradientIcon
+                  width={25}
+                  icon={<MaterialIcons name='logout' size={24} />}
                 />
                 <Text style={styles.menuItemText}>Logout</Text>
               </View>

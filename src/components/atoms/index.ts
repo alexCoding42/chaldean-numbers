@@ -4,6 +4,7 @@ export { default as CardNumber } from './CardNumber';
 export { default as Divider } from './Divider';
 export { default as LinearGradientBackground } from './LinearGradientBackground';
 export { default as LinearGradientButton } from './LinearGradientButton';
+export { default as LinearGradientIcon } from './LinearGradientIcon';
 export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as OutlineButton } from './OutlineButton';
 export { default as TabBarIcon } from './TabBarIcon';

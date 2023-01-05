@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     paddingVertical: Spacings.XS,
   },
   email: {
-    color: Colors.yellow.light,
+    color: Colors.yellow.dark,
   },
 });
 

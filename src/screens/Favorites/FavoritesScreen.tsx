@@ -10,6 +10,8 @@ import { useQuery } from '@apollo/client';
 import { GET_FAVORITES } from '../../graphql/queries';
 import { useFocusEffect } from '@react-navigation/native';
 import { useUserData } from '@nhost/react';
+import { Gradients } from '../../theme/colors';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function FavoritesScreen() {
   const user = useUserData();
@@ -49,7 +51,13 @@ export default function FavoritesScreen() {
       ) : (
         <>
           <View>
-            <Text style={styles.favoriteCategoryName}>Names</Text>
+            <LinearGradient
+              colors={Gradients.yellow.default}
+              start={{ x: 0.7, y: 0 }}
+              end={{ x: 0.7, y: 1 }}
+            >
+              <Text style={styles.favoriteCategoryName}>Names</Text>
+            </LinearGradient>
             {names.length > 0 ? (
               <FlatList
                 data={names}
@@ -60,7 +68,13 @@ export default function FavoritesScreen() {
             )}
           </View>
           <View>
-            <Text style={styles.favoriteCategoryName}>Dates</Text>
+            <LinearGradient
+              colors={Gradients.yellow.default}
+              start={{ x: 0.7, y: 0 }}
+              end={{ x: 0.7, y: 1 }}
+            >
+              <Text style={styles.favoriteCategoryName}>Dates</Text>
+            </LinearGradient>
             {dates.length > 0 ? (
               <FlatList
                 data={dates}
