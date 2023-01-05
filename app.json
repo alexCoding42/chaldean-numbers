@@ -18,14 +18,16 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.alex.dev.chaldeannumbers"
+      "bundleIdentifier": "com.alex.dev.chaldeannumbers",
+      "buildNumber": "1.0.1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.alex_dev.chaldeannumbers"
+      "package": "com.alex_dev.chaldeannumbers",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
